@@ -81,6 +81,1144 @@ paths:
                 - email
                 - password
       security: []
+  /api/v1/login:
+    get:
+      summary: Login
+      operationId: login
+      description: 'This endpoint is used to login a user to the system.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'User Login Successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User Login Successfully'
+                  access_token: ''
+                  token_type: Bearer
+                properties:
+                  message:
+                    type: string
+                    example: 'User Login Successfully'
+                  access_token:
+                    type: string
+                    example: ''
+                  token_type:
+                    type: string
+                    example: Bearer
+        401:
+          description: 'Failed Login'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid login credentials'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid login credentials'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: admin@gmail.com
+                password:
+                  type: string
+                  description: ''
+                  example: '123456'
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/register:
+    get:
+      summary: Register
+      operationId: register
+      description: 'This endpoint is used to register a user to the system.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Already register'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Already registered.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Already registered.'
+        401:
+          description: 'Failed Login'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid login credentials'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid login credentials'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: admin
+                email:
+                  type: string
+                  description: ''
+                  example: admin@gmail.com
+                password:
+                  type: string
+                  description: ''
+                  example: '123456'
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/v1/movies:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  is_auth: false
+                  genres:
+                    -
+                      id: 1
+                      name: Action
+                    -
+                      id: 2
+                      name: Drama
+                  banner:
+                    title: 'Kruty 1918 (2019)'
+                    summary: 'ယူကရိန်းကို ကမ္ဘာက လွတ်လပ်တဲ့နိုင်ငံအဖြစ် အသိအမှတ်ပြုဖို့ အသင့်ဖြစ်နေပါပြီ။ ဒါပေမယ့် လွတ်လပ်ရေးလမ်းကြောင်းကို အနှောင့်အယှက်ပေးနေတဲ့ ရုရှားစစ်တပ်ဟာ ယူကရိန်းမြို့တွေကို တစ်မြို့ပြီးတစ်မြို့သိမ်းယူရင်း မြို့တော် ကီဗီ ကိုသိမ်းဖို့အထိစီစဉ် ထားခဲ့ပါတယ်။'
+                    cover_image: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                    genres: Action
+                    author: 'Aleksey Shaparev'
+                    tags: 'Action drama'
+                    imdb_ratings: 9
+                    pdf_download_link: 'https://channelmyanmar.org/kruty-1918-2019/'
+                  movies:
+                    -
+                      id: 10
+                      user_id: 4
+                      title: 'mov title'
+                      summary: summary
+                      cover_image: 'https://img/path'
+                      genres: 'drama, action'
+                      author: 'author name'
+                      tags: 'drama, action'
+                      imdb_ratings: 5.6
+                      pdf_download_link: 'https://img/path'
+                      created_at: '2023-02-06T09:52:49.000000Z'
+                      updated_at: '2023-02-06T09:52:49.000000Z'
+                      deleted_at: null
+                    -
+                      id: 9
+                      user_id: 4
+                      title: 'mov title'
+                      summary: summary
+                      cover_image: 'https://img/path'
+                      genres: 'drama, action'
+                      author: 'author name'
+                      tags: 'drama, action'
+                      imdb_ratings: 5.6
+                      pdf_download_link: 'https://img/path'
+                      created_at: '2023-02-06T09:52:30.000000Z'
+                      updated_at: '2023-02-06T09:52:30.000000Z'
+                      deleted_at: null
+                    -
+                      id: 8
+                      user_id: 4
+                      title: 'mov title'
+                      summary: null
+                      cover_image: null
+                      genres: null
+                      author: null
+                      tags: null
+                      imdb_ratings: 5
+                      pdf_download_link: null
+                      created_at: '2023-02-06T09:49:44.000000Z'
+                      updated_at: '2023-02-06T09:49:44.000000Z'
+                      deleted_at: null
+                    -
+                      id: 6
+                      user_id: 1
+                      title: 'User 001 movie'
+                      summary: summary
+                      cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      genres: action
+                      author: ato
+                      tags: drama
+                      imdb_ratings: 5
+                      pdf_download_link: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      created_at: '2023-02-06T08:00:14.000000Z'
+                      updated_at: '2023-02-06T08:00:14.000000Z'
+                      deleted_at: null
+                    -
+                      id: 5
+                      user_id: 0
+                      title: 'Northeast Zoo ( 2023 )'
+                      summary: "ဒီနေ့မှာတော့ CM က ပရိတ်သတ်ကြီးကို ဘဝအမောတွေပြေစေဖို့\n                ပေါ့ပေါ့ပါးပါး ဟာသကားလေးတစ်ကားနဲ့မိတ်ဆက်ပေးပါရစေရှင် ။“ မြို့ကိုတက်ပြီးအလုပ်လုပ်နေပေမဲ့ အလုပ်မှာ အဆင်မပြေမှုတွေနဲ့ ရင်ဆိုင်နေရသူ ၊\n                ဖခင်ဖြစ်သူဟာ လျောင်ခရိုင်မှာ တိရိစ္ဆာန်ရုံတစ်ခုကိုဖွင့်လှစ်ထားပေမဲ့\n                ၎င်းတိရိစ္ဆာန်ရုံကို ဦးစီးဖို့ နည်းနည်းလေးမှ စိတ်ကူးမရှိသူ ၊\n                ဖခင်နဲ့လဲ ဆက်ဆံရေး အဆင်မပြေသူ – စွင်းရှောင်ဟူ တစ်နေ့မှာတော့ ရင်းနီးမြှုပ်နှံသူတစ်ချို့ဟာ စွင်းရှောင်ဟူ ဖခင်ရဲ့\n                တိရိစ္ဆာန်ရုံကို စီးပွားရေးနယ်ချဲ့ဖို့အတွက် မျက်စိကျနေခဲ့ကာ\n                တိရိစ္ဆာန်ရုံမြေနေရာကို လက်ဝါးကြီးအုပ်ဖို့ ကြံစည်လာခဲ့ပါတယ် ။အဲဒါနဲ့ပဲ အလုပ်အကိုင် / ငွေကြေးအဆင်မပြေတဲ့ စွင်းရှောင် ဟူကို\n                ငွေနဲ့ဖျားယောင်းကာ တိရိစ္ဆာန်ရုံရဲ့ စီးပွားရေးဖျက်ဆီးပစ်ပြီး\n                မြေနေရာကို ဖယ်ခိုင်းခဲ့ပါတယ် ။ ဖခင်အပေါ်လဲ စိတ်ကျေနပ်မှုမရှိတဲ့\n                စွင်းရှောင်ဟူဟာ ဒီသဘောတူညီချက်ကိုလက်ခံပြီး\n                တိရိစ္ဆာန်ရုံကို ဖျက်ဆီးပစ်ဖို့ စီစဥ်လာခဲ့ပါတော့တယ် ။❏ စွင်းရှောင်ဟူတစ်ယောက် ဖခင်ဖြစ်သူကိုဘယ်လိုရင်ဆိုင်မှာလဲ ?\n                ❏ တိရိစ္ဆာန်ရုံဖျက်ဆီးပြစ်ဖို့ အကြံကရော အောင်မြင်နိုင်ပါ့မလား ?\n                ❏ သူ့အပေါ်ဆို ဘယ်အရာနေနေ သစ္စာရှိကြတဲ့\n                သူငယ်ချင်းတွေကရော သူ့လုပ်ရပ်အတွက် ခွင့်လွှတ်နိုင်ပါ့မလား ?\n                ❏ ဘယ်လိုအလွဲလွဲ အမှားမှားတွေ ဖြစ်လာဦးမလဲဆိုတာ\n                ဟာသလေးတွေနှောပြီး ရိုက်ကူးထားတဲ့ ဒီဇာတ်ကားလေးကို အခုပဲ ကြည့်ရှုလိုက်ရအောင်ပါနော် ။"
+                      cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      genres: 'Comedy, Drama'
+                      author: China
+                      tags: 'Comedy, Drama'
+                      imdb_ratings: 9
+                      pdf_download_link: 'https://channelmyanmar.org/northeast-zoo-2023/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 4
+                      user_id: 0
+                      title: 'Battlebox (2023)'
+                      summary: "၁၉၄၁ ခုနှစ်၊ ဟောင်ကောင်ဟာ ဗြိတိသျှအင်ပိုင်ယာကြီးရဲ့ အရှေ့ဘက်စစ်မျက်နှာခံတပ်တစ်ခု ဖြစ်နေတဲ့ကာလ……\n                ဂျပန်တပ်တွေရုတ်တရက်တိုက်ခိုက်လာခဲ့တဲ့အခါ….\n                အလွဲလွဲအမှားမှား ဖြစ်ကုန်တဲ့ စစ်ဖက်ထောက်လှမ်းရေးပြဿနာကြားမှာ ပါဝင်ပတ်သက်နေမိတဲ့ တရုတ်ညီအစ်မနှစ်ယောက်ရဲ့ ဇာတ်လမ်း….\n                Gin Drinker ခံစစ်ကြောင်းမှာ ဂျပန်တွေအဝိုင်းခံလိုက်ရတဲ့ ဗြိတိသျှ-အိန္ဒိယစစ်သားတွေရဲ့ ဖြစ်ပုံပျက်ပုံတွေ….\n                သွေးပျက်ချင်စရာ စစ်ပွဲရဲ့မြူနှင်းတွေကြားမှာ မေဂျာဂျင်နရယ် မော့ဘီနဲ့ သူ့ရဲ့ အထက်တန်းအရာရှိတွေ အရှက်ကွဲခံပြီးလက်နက်ချကြမှာလား၊\n                အသက်အသေခံပြီး အဆုံးထိခံတိုက်သွားကြမှာလား….\n                (ဘယ်လမ်းကိုရွေးဖို့ သတ္တိပိုလိုမလဲ) စတာတွေကို ဇာတ်ကားလေးကြည့်ရင်း\n                ဆက်လက်ရှုစားလိုက်ကြပါဦး…………."
+                      cover_image: 'https://image.tmdb.org/t/p/w185/fDeqyKwEtms2IFtT8SDvURZWqAF.jpg'
+                      genres: 'Drama, History, War'
+                      author: 'Aleksey Shaparev'
+                      tags: 'Drama, History, War'
+                      imdb_ratings: 9
+                      pdf_download_link: 'https://channelmyanmar.org/battlebox-2023/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 3
+                      user_id: 0
+                      title: 'Perfect Strangers (2022)'
+                      summary: "လကြတ်ချိန်ဟာ နေနဲ့လတို့ကြားက တင်းမာမှု အပြင်းထန်ဆုံးအချိန်ဖြစ်ပြီး\n                လူသားတွေကို စိတ်ကယောက်ကယက်ဖြစ်စေတယ်ဆိုပြီး အဆိုရှိပါတယ်။အဲဒီလို စိတ်ကယောက်ကယက်ဖြစ်စေတဲ့ လကြတ်ညတစ်ညမှာ\n                မိတ်ဆွေသူငယ်ချင်း (၇) ယောက် ညစာအတူစားကြဖို့ စုမိကြပါတယ်။အန်ဒရီကိုနဲ့အီဗာတို့က သူတို့ရဲ့ အိမ်အသစ်ကြီးမှာ အိမ်တက်ပွဲအထိမ်းအမှတ်အနေနဲ့ ညစာဖိတ်ကျွေးတာပါ။\n                ညစာစားပွဲမှာ အိမ်ရှင် လင်မယားနဲ့အတူ ညားခါစ စုံတွဲ အန်ဂျာ့စ်နဲ့ကီရှာ၊\n                ကလေးနှစ်ယောက်ရနေပြီ ဖြစ်တဲ့ ဝစ်နူနဲ့အီမဲလ်ဒါ၊ ရည်စားရထားတာ မကြာသေးတဲ့ တိုမို ဆိုပြီး\n                စုစုပေါင်း (၇) ယောက် ပါဝင်ပါတယ်။ပေါင်းလာတာ ကြာပြီဖြစ်တဲ့ အကြောင်းသိတွေ ပျော်ပျော်ပါးပါး စားကြသောက်ကြရင်း\n                အိမ်ကြီးရှင် အီဗာက ဂိမ်းတစ်ခု ကစားကြဖို့ ပြောလိုက်ရာကနေ ဇာတ်လမ်းက စ,ပါတယ်။\n                သူပြောတဲ့ ဂိမ်းက ဖုန်းတွေအားလုံးကို စားပွဲပေါ်မှာ တင်ထားပြီး\n                ဝင်လာသမျှ မက်ဆေ့ဂျ်တွေ၊ ဖုန်းကောလ်တွေ၊ အီးမေးလ်တွေကို အတူတူဝိုင်းဖတ်ကြဖို့ပါ။ဆော့ရင်လည်း မကောင်း၊ မဆော့ပြန်ရင်လဲ အထင်လွဲခံရမှာစိုးတာနဲ့ အဲဒီဂိမ်းကို ဆော့ကြရင်းကနေ\n                တစ်ယောက်ချင်းစီရဲ့ လျှို့ဝှက်ချက်တွေ ပေါ်လာပြီး ပြဿနာတွေက သပွတ်အူလို ရှုပ်ထွေးကုန်ပါတော့တယ်။လူတွေရဲ့ လူသိမခံနိုင်တဲ့ လျှို့ဝှက်ချက်တွေ၊ ခံစားချက်တွေကို တစ်စချင်းစီ ထုတ်ပြသွားတာကြောင့်\n                (၂ )နာရီကျော်ကျော်က ဘယ်လိုကုန်လို့ကုန်သွားမှန်း မသိလိုက်တဲ့ ဇာတ်ကားမျိုးပါ။အညွှန်းဖတ်နေရင်းနဲ့ ဒီဇာတ်ကားကို ကြည့်ဖူးသလိုပဲလို့ ခံစားမိလာရင်တော့….ဟုတ်ပါတယ်….\n                2016 က ထွက်ခဲ့တဲ့ အီတလီ ဇာတ်ကားကို remake ပြန်ရိုက်ထားတာပါ။မူရင်း အီတလီကားက အကြီးအကျယ်အောင်မြင်ခဲ့ပြီး\n                စပိန်၊ မက္ကဆီကို၊ တောင်ကိုရီးယား၊ ပြင်သစ်၊ တရုတ်၊ ရုရှား အပါအဝင်\n                နိုင်ငံပေါင်း ၂၀ ကျော်က remake ပြန်ရိုက်ခဲ့ကြပါတယ်။အဲဒီ remake တွေထဲကမှ ဒီကားကတော့ 2022 ခုနှစ်မှာ အင်ဒိုနီးရှားက ပြန်ရိုက်ထားတဲ့ ဇာတ်ကားပါ။အင်ဒို remake ကားဆိုပေမဲ့ အတော်လေး ကြည့်လို့ကောင်းပြီး\n                setting ပိုင်း၊ သရုပ်ဆောင်ပိုင်း၊ musical ပိုင်း ဘာတစ်ခုမှ အပြစ်ပြောစရာ မရှိတဲ့ ဇာတ်ကားပါ။အီတလီဒဏ္ဍာရီနဲ့ အင်ဒိုရိုးရာတွေကို ပါးပါးနပ်နပ် ချိတ်ဆက်ပြထားပြီး\n                မူရင်း ဇာတ်ကားရဲ့ အရသာလည်း မပျက်သလို ဆန်းသစ်တဲ့ တင်ဆက်မှုကိုလည်း မြင်တွေ့ရမှာပါ။mystery ဆန်ဆန် အထုပ်ဖြေပြတာမျိုးကို ကြိုက်ရင်တော့ မြည်းစမ်းကြည့်သင့်ပါတယ်။\n                IMDb rating ကလည်း 7.5 အထိ ရထားပါတယ်။အညွှန်း နဲ့ ဘာသာပြန်ကတော့ Roman NoX ပဲ ဖြစ်ပါတယ်။"
+                      cover_image: 'https://image.tmdb.org/t/p/w185/rMSeZk9kCZhxVl3OOXIH29Gx1W6.jpg'
+                      genres: Action
+                      author: 'Aleksey Shaparev'
+                      tags: 'Action drama'
+                      imdb_ratings: 9
+                      pdf_download_link: 'https://channelmyanmar.org/perfect-strangers-2022/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 2
+                      user_id: 0
+                      title: 'The Royal Nanny (2022)'
+                      summary: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                      cover_image: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                      genres: Action
+                      author: 'Aleksey Shaparev'
+                      tags: 'Comedy, Drama, Romance'
+                      imdb_ratings: 6.9
+                      pdf_download_link: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                  popular_movies:
+                    -
+                      id: 2
+                      user_id: 0
+                      title: 'The Royal Nanny (2022)'
+                      summary: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                      cover_image: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                      genres: Action
+                      author: 'Aleksey Shaparev'
+                      tags: 'Comedy, Drama, Romance'
+                      imdb_ratings: 6.9
+                      pdf_download_link: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 3
+                      user_id: 0
+                      title: 'Perfect Strangers (2022)'
+                      summary: "လကြတ်ချိန်ဟာ နေနဲ့လတို့ကြားက တင်းမာမှု အပြင်းထန်ဆုံးအချိန်ဖြစ်ပြီး\n                လူသားတွေကို စိတ်ကယောက်ကယက်ဖြစ်စေတယ်ဆိုပြီး အဆိုရှိပါတယ်။အဲဒီလို စိတ်ကယောက်ကယက်ဖြစ်စေတဲ့ လကြတ်ညတစ်ညမှာ\n                မိတ်ဆွေသူငယ်ချင်း (၇) ယောက် ညစာအတူစားကြဖို့ စုမိကြပါတယ်။အန်ဒရီကိုနဲ့အီဗာတို့က သူတို့ရဲ့ အိမ်အသစ်ကြီးမှာ အိမ်တက်ပွဲအထိမ်းအမှတ်အနေနဲ့ ညစာဖိတ်ကျွေးတာပါ။\n                ညစာစားပွဲမှာ အိမ်ရှင် လင်မယားနဲ့အတူ ညားခါစ စုံတွဲ အန်ဂျာ့စ်နဲ့ကီရှာ၊\n                ကလေးနှစ်ယောက်ရနေပြီ ဖြစ်တဲ့ ဝစ်နူနဲ့အီမဲလ်ဒါ၊ ရည်စားရထားတာ မကြာသေးတဲ့ တိုမို ဆိုပြီး\n                စုစုပေါင်း (၇) ယောက် ပါဝင်ပါတယ်။ပေါင်းလာတာ ကြာပြီဖြစ်တဲ့ အကြောင်းသိတွေ ပျော်ပျော်ပါးပါး စားကြသောက်ကြရင်း\n                အိမ်ကြီးရှင် အီဗာက ဂိမ်းတစ်ခု ကစားကြဖို့ ပြောလိုက်ရာကနေ ဇာတ်လမ်းက စ,ပါတယ်။\n                သူပြောတဲ့ ဂိမ်းက ဖုန်းတွေအားလုံးကို စားပွဲပေါ်မှာ တင်ထားပြီး\n                ဝင်လာသမျှ မက်ဆေ့ဂျ်တွေ၊ ဖုန်းကောလ်တွေ၊ အီးမေးလ်တွေကို အတူတူဝိုင်းဖတ်ကြဖို့ပါ။ဆော့ရင်လည်း မကောင်း၊ မဆော့ပြန်ရင်လဲ အထင်လွဲခံရမှာစိုးတာနဲ့ အဲဒီဂိမ်းကို ဆော့ကြရင်းကနေ\n                တစ်ယောက်ချင်းစီရဲ့ လျှို့ဝှက်ချက်တွေ ပေါ်လာပြီး ပြဿနာတွေက သပွတ်အူလို ရှုပ်ထွေးကုန်ပါတော့တယ်။လူတွေရဲ့ လူသိမခံနိုင်တဲ့ လျှို့ဝှက်ချက်တွေ၊ ခံစားချက်တွေကို တစ်စချင်းစီ ထုတ်ပြသွားတာကြောင့်\n                (၂ )နာရီကျော်ကျော်က ဘယ်လိုကုန်လို့ကုန်သွားမှန်း မသိလိုက်တဲ့ ဇာတ်ကားမျိုးပါ။အညွှန်းဖတ်နေရင်းနဲ့ ဒီဇာတ်ကားကို ကြည့်ဖူးသလိုပဲလို့ ခံစားမိလာရင်တော့….ဟုတ်ပါတယ်….\n                2016 က ထွက်ခဲ့တဲ့ အီတလီ ဇာတ်ကားကို remake ပြန်ရိုက်ထားတာပါ။မူရင်း အီတလီကားက အကြီးအကျယ်အောင်မြင်ခဲ့ပြီး\n                စပိန်၊ မက္ကဆီကို၊ တောင်ကိုရီးယား၊ ပြင်သစ်၊ တရုတ်၊ ရုရှား အပါအဝင်\n                နိုင်ငံပေါင်း ၂၀ ကျော်က remake ပြန်ရိုက်ခဲ့ကြပါတယ်။အဲဒီ remake တွေထဲကမှ ဒီကားကတော့ 2022 ခုနှစ်မှာ အင်ဒိုနီးရှားက ပြန်ရိုက်ထားတဲ့ ဇာတ်ကားပါ။အင်ဒို remake ကားဆိုပေမဲ့ အတော်လေး ကြည့်လို့ကောင်းပြီး\n                setting ပိုင်း၊ သရုပ်ဆောင်ပိုင်း၊ musical ပိုင်း ဘာတစ်ခုမှ အပြစ်ပြောစရာ မရှိတဲ့ ဇာတ်ကားပါ။အီတလီဒဏ္ဍာရီနဲ့ အင်ဒိုရိုးရာတွေကို ပါးပါးနပ်နပ် ချိတ်ဆက်ပြထားပြီး\n                မူရင်း ဇာတ်ကားရဲ့ အရသာလည်း မပျက်သလို ဆန်းသစ်တဲ့ တင်ဆက်မှုကိုလည်း မြင်တွေ့ရမှာပါ။mystery ဆန်ဆန် အထုပ်ဖြေပြတာမျိုးကို ကြိုက်ရင်တော့ မြည်းစမ်းကြည့်သင့်ပါတယ်။\n                IMDb rating ကလည်း 7.5 အထိ ရထားပါတယ်။အညွှန်း နဲ့ ဘာသာပြန်ကတော့ Roman NoX ပဲ ဖြစ်ပါတယ်။"
+                      cover_image: 'https://image.tmdb.org/t/p/w185/rMSeZk9kCZhxVl3OOXIH29Gx1W6.jpg'
+                      genres: Action
+                      author: 'Aleksey Shaparev'
+                      tags: 'Action drama'
+                      imdb_ratings: 9
+                      pdf_download_link: 'https://channelmyanmar.org/perfect-strangers-2022/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 4
+                      user_id: 0
+                      title: 'Battlebox (2023)'
+                      summary: "၁၉၄၁ ခုနှစ်၊ ဟောင်ကောင်ဟာ ဗြိတိသျှအင်ပိုင်ယာကြီးရဲ့ အရှေ့ဘက်စစ်မျက်နှာခံတပ်တစ်ခု ဖြစ်နေတဲ့ကာလ……\n                ဂျပန်တပ်တွေရုတ်တရက်တိုက်ခိုက်လာခဲ့တဲ့အခါ….\n                အလွဲလွဲအမှားမှား ဖြစ်ကုန်တဲ့ စစ်ဖက်ထောက်လှမ်းရေးပြဿနာကြားမှာ ပါဝင်ပတ်သက်နေမိတဲ့ တရုတ်ညီအစ်မနှစ်ယောက်ရဲ့ ဇာတ်လမ်း….\n                Gin Drinker ခံစစ်ကြောင်းမှာ ဂျပန်တွေအဝိုင်းခံလိုက်ရတဲ့ ဗြိတိသျှ-အိန္ဒိယစစ်သားတွေရဲ့ ဖြစ်ပုံပျက်ပုံတွေ….\n                သွေးပျက်ချင်စရာ စစ်ပွဲရဲ့မြူနှင်းတွေကြားမှာ မေဂျာဂျင်နရယ် မော့ဘီနဲ့ သူ့ရဲ့ အထက်တန်းအရာရှိတွေ အရှက်ကွဲခံပြီးလက်နက်ချကြမှာလား၊\n                အသက်အသေခံပြီး အဆုံးထိခံတိုက်သွားကြမှာလား….\n                (ဘယ်လမ်းကိုရွေးဖို့ သတ္တိပိုလိုမလဲ) စတာတွေကို ဇာတ်ကားလေးကြည့်ရင်း\n                ဆက်လက်ရှုစားလိုက်ကြပါဦး…………."
+                      cover_image: 'https://image.tmdb.org/t/p/w185/fDeqyKwEtms2IFtT8SDvURZWqAF.jpg'
+                      genres: 'Drama, History, War'
+                      author: 'Aleksey Shaparev'
+                      tags: 'Drama, History, War'
+                      imdb_ratings: 9
+                      pdf_download_link: 'https://channelmyanmar.org/battlebox-2023/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 5
+                      user_id: 0
+                      title: 'Northeast Zoo ( 2023 )'
+                      summary: "ဒီနေ့မှာတော့ CM က ပရိတ်သတ်ကြီးကို ဘဝအမောတွေပြေစေဖို့\n                ပေါ့ပေါ့ပါးပါး ဟာသကားလေးတစ်ကားနဲ့မိတ်ဆက်ပေးပါရစေရှင် ။“ မြို့ကိုတက်ပြီးအလုပ်လုပ်နေပေမဲ့ အလုပ်မှာ အဆင်မပြေမှုတွေနဲ့ ရင်ဆိုင်နေရသူ ၊\n                ဖခင်ဖြစ်သူဟာ လျောင်ခရိုင်မှာ တိရိစ္ဆာန်ရုံတစ်ခုကိုဖွင့်လှစ်ထားပေမဲ့\n                ၎င်းတိရိစ္ဆာန်ရုံကို ဦးစီးဖို့ နည်းနည်းလေးမှ စိတ်ကူးမရှိသူ ၊\n                ဖခင်နဲ့လဲ ဆက်ဆံရေး အဆင်မပြေသူ – စွင်းရှောင်ဟူ တစ်နေ့မှာတော့ ရင်းနီးမြှုပ်နှံသူတစ်ချို့ဟာ စွင်းရှောင်ဟူ ဖခင်ရဲ့\n                တိရိစ္ဆာန်ရုံကို စီးပွားရေးနယ်ချဲ့ဖို့အတွက် မျက်စိကျနေခဲ့ကာ\n                တိရိစ္ဆာန်ရုံမြေနေရာကို လက်ဝါးကြီးအုပ်ဖို့ ကြံစည်လာခဲ့ပါတယ် ။အဲဒါနဲ့ပဲ အလုပ်အကိုင် / ငွေကြေးအဆင်မပြေတဲ့ စွင်းရှောင် ဟူကို\n                ငွေနဲ့ဖျားယောင်းကာ တိရိစ္ဆာန်ရုံရဲ့ စီးပွားရေးဖျက်ဆီးပစ်ပြီး\n                မြေနေရာကို ဖယ်ခိုင်းခဲ့ပါတယ် ။ ဖခင်အပေါ်လဲ စိတ်ကျေနပ်မှုမရှိတဲ့\n                စွင်းရှောင်ဟူဟာ ဒီသဘောတူညီချက်ကိုလက်ခံပြီး\n                တိရိစ္ဆာန်ရုံကို ဖျက်ဆီးပစ်ဖို့ စီစဥ်လာခဲ့ပါတော့တယ် ။❏ စွင်းရှောင်ဟူတစ်ယောက် ဖခင်ဖြစ်သူကိုဘယ်လိုရင်ဆိုင်မှာလဲ ?\n                ❏ တိရိစ္ဆာန်ရုံဖျက်ဆီးပြစ်ဖို့ အကြံကရော အောင်မြင်နိုင်ပါ့မလား ?\n                ❏ သူ့အပေါ်ဆို ဘယ်အရာနေနေ သစ္စာရှိကြတဲ့\n                သူငယ်ချင်းတွေကရော သူ့လုပ်ရပ်အတွက် ခွင့်လွှတ်နိုင်ပါ့မလား ?\n                ❏ ဘယ်လိုအလွဲလွဲ အမှားမှားတွေ ဖြစ်လာဦးမလဲဆိုတာ\n                ဟာသလေးတွေနှောပြီး ရိုက်ကူးထားတဲ့ ဒီဇာတ်ကားလေးကို အခုပဲ ကြည့်ရှုလိုက်ရအောင်ပါနော် ။"
+                      cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      genres: 'Comedy, Drama'
+                      author: China
+                      tags: 'Comedy, Drama'
+                      imdb_ratings: 9
+                      pdf_download_link: 'https://channelmyanmar.org/northeast-zoo-2023/'
+                      created_at: '2023-02-06T07:05:40.000000Z'
+                      updated_at: '2023-02-06T07:05:40.000000Z'
+                      deleted_at: null
+                    -
+                      id: 6
+                      user_id: 1
+                      title: 'User 001 movie'
+                      summary: summary
+                      cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      genres: action
+                      author: ato
+                      tags: drama
+                      imdb_ratings: 5
+                      pdf_download_link: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      created_at: '2023-02-06T08:00:14.000000Z'
+                      updated_at: '2023-02-06T08:00:14.000000Z'
+                      deleted_at: null
+                    -
+                      id: 8
+                      user_id: 4
+                      title: 'mov title'
+                      summary: null
+                      cover_image: null
+                      genres: null
+                      author: null
+                      tags: null
+                      imdb_ratings: 5
+                      pdf_download_link: null
+                      created_at: '2023-02-06T09:49:44.000000Z'
+                      updated_at: '2023-02-06T09:49:44.000000Z'
+                      deleted_at: null
+                    -
+                      id: 9
+                      user_id: 4
+                      title: 'mov title'
+                      summary: summary
+                      cover_image: 'https://img/path'
+                      genres: 'drama, action'
+                      author: 'author name'
+                      tags: 'drama, action'
+                      imdb_ratings: 5.6
+                      pdf_download_link: 'https://img/path'
+                      created_at: '2023-02-06T09:52:30.000000Z'
+                      updated_at: '2023-02-06T09:52:30.000000Z'
+                      deleted_at: null
+                    -
+                      id: 10
+                      user_id: 4
+                      title: 'mov title'
+                      summary: summary
+                      cover_image: 'https://img/path'
+                      genres: 'drama, action'
+                      author: 'author name'
+                      tags: 'drama, action'
+                      imdb_ratings: 5.6
+                      pdf_download_link: 'https://img/path'
+                      created_at: '2023-02-06T09:52:49.000000Z'
+                      updated_at: '2023-02-06T09:52:49.000000Z'
+                      deleted_at: null
+                properties:
+                  is_auth:
+                    type: boolean
+                    example: false
+                  genres:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Action
+                      -
+                        id: 2
+                        name: Drama
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Action
+                  banner:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                        example: 'Kruty 1918 (2019)'
+                      summary:
+                        type: string
+                        example: 'ယူကရိန်းကို ကမ္ဘာက လွတ်လပ်တဲ့နိုင်ငံအဖြစ် အသိအမှတ်ပြုဖို့ အသင့်ဖြစ်နေပါပြီ။ ဒါပေမယ့် လွတ်လပ်ရေးလမ်းကြောင်းကို အနှောင့်အယှက်ပေးနေတဲ့ ရုရှားစစ်တပ်ဟာ ယူကရိန်းမြို့တွေကို တစ်မြို့ပြီးတစ်မြို့သိမ်းယူရင်း မြို့တော် ကီဗီ ကိုသိမ်းဖို့အထိစီစဉ် ထားခဲ့ပါတယ်။'
+                      cover_image:
+                        type: string
+                        example: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                      genres:
+                        type: string
+                        example: Action
+                      author:
+                        type: string
+                        example: 'Aleksey Shaparev'
+                      tags:
+                        type: string
+                        example: 'Action drama'
+                      imdb_ratings:
+                        type: integer
+                        example: 9
+                      pdf_download_link:
+                        type: string
+                        example: 'https://channelmyanmar.org/kruty-1918-2019/'
+                  movies:
+                    type: array
+                    example:
+                      -
+                        id: 10
+                        user_id: 4
+                        title: 'mov title'
+                        summary: summary
+                        cover_image: 'https://img/path'
+                        genres: 'drama, action'
+                        author: 'author name'
+                        tags: 'drama, action'
+                        imdb_ratings: 5.6
+                        pdf_download_link: 'https://img/path'
+                        created_at: '2023-02-06T09:52:49.000000Z'
+                        updated_at: '2023-02-06T09:52:49.000000Z'
+                        deleted_at: null
+                      -
+                        id: 9
+                        user_id: 4
+                        title: 'mov title'
+                        summary: summary
+                        cover_image: 'https://img/path'
+                        genres: 'drama, action'
+                        author: 'author name'
+                        tags: 'drama, action'
+                        imdb_ratings: 5.6
+                        pdf_download_link: 'https://img/path'
+                        created_at: '2023-02-06T09:52:30.000000Z'
+                        updated_at: '2023-02-06T09:52:30.000000Z'
+                        deleted_at: null
+                      -
+                        id: 8
+                        user_id: 4
+                        title: 'mov title'
+                        summary: null
+                        cover_image: null
+                        genres: null
+                        author: null
+                        tags: null
+                        imdb_ratings: 5
+                        pdf_download_link: null
+                        created_at: '2023-02-06T09:49:44.000000Z'
+                        updated_at: '2023-02-06T09:49:44.000000Z'
+                        deleted_at: null
+                      -
+                        id: 6
+                        user_id: 1
+                        title: 'User 001 movie'
+                        summary: summary
+                        cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        genres: action
+                        author: ato
+                        tags: drama
+                        imdb_ratings: 5
+                        pdf_download_link: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        created_at: '2023-02-06T08:00:14.000000Z'
+                        updated_at: '2023-02-06T08:00:14.000000Z'
+                        deleted_at: null
+                      -
+                        id: 5
+                        user_id: 0
+                        title: 'Northeast Zoo ( 2023 )'
+                        summary: "ဒီနေ့မှာတော့ CM က ပရိတ်သတ်ကြီးကို ဘဝအမောတွေပြေစေဖို့\n                ပေါ့ပေါ့ပါးပါး ဟာသကားလေးတစ်ကားနဲ့မိတ်ဆက်ပေးပါရစေရှင် ။“ မြို့ကိုတက်ပြီးအလုပ်လုပ်နေပေမဲ့ အလုပ်မှာ အဆင်မပြေမှုတွေနဲ့ ရင်ဆိုင်နေရသူ ၊\n                ဖခင်ဖြစ်သူဟာ လျောင်ခရိုင်မှာ တိရိစ္ဆာန်ရုံတစ်ခုကိုဖွင့်လှစ်ထားပေမဲ့\n                ၎င်းတိရိစ္ဆာန်ရုံကို ဦးစီးဖို့ နည်းနည်းလေးမှ စိတ်ကူးမရှိသူ ၊\n                ဖခင်နဲ့လဲ ဆက်ဆံရေး အဆင်မပြေသူ – စွင်းရှောင်ဟူ တစ်နေ့မှာတော့ ရင်းနီးမြှုပ်နှံသူတစ်ချို့ဟာ စွင်းရှောင်ဟူ ဖခင်ရဲ့\n                တိရိစ္ဆာန်ရုံကို စီးပွားရေးနယ်ချဲ့ဖို့အတွက် မျက်စိကျနေခဲ့ကာ\n                တိရိစ္ဆာန်ရုံမြေနေရာကို လက်ဝါးကြီးအုပ်ဖို့ ကြံစည်လာခဲ့ပါတယ် ။အဲဒါနဲ့ပဲ အလုပ်အကိုင် / ငွေကြေးအဆင်မပြေတဲ့ စွင်းရှောင် ဟူကို\n                ငွေနဲ့ဖျားယောင်းကာ တိရိစ္ဆာန်ရုံရဲ့ စီးပွားရေးဖျက်ဆီးပစ်ပြီး\n                မြေနေရာကို ဖယ်ခိုင်းခဲ့ပါတယ် ။ ဖခင်အပေါ်လဲ စိတ်ကျေနပ်မှုမရှိတဲ့\n                စွင်းရှောင်ဟူဟာ ဒီသဘောတူညီချက်ကိုလက်ခံပြီး\n                တိရိစ္ဆာန်ရုံကို ဖျက်ဆီးပစ်ဖို့ စီစဥ်လာခဲ့ပါတော့တယ် ။❏ စွင်းရှောင်ဟူတစ်ယောက် ဖခင်ဖြစ်သူကိုဘယ်လိုရင်ဆိုင်မှာလဲ ?\n                ❏ တိရိစ္ဆာန်ရုံဖျက်ဆီးပြစ်ဖို့ အကြံကရော အောင်မြင်နိုင်ပါ့မလား ?\n                ❏ သူ့အပေါ်ဆို ဘယ်အရာနေနေ သစ္စာရှိကြတဲ့\n                သူငယ်ချင်းတွေကရော သူ့လုပ်ရပ်အတွက် ခွင့်လွှတ်နိုင်ပါ့မလား ?\n                ❏ ဘယ်လိုအလွဲလွဲ အမှားမှားတွေ ဖြစ်လာဦးမလဲဆိုတာ\n                ဟာသလေးတွေနှောပြီး ရိုက်ကူးထားတဲ့ ဒီဇာတ်ကားလေးကို အခုပဲ ကြည့်ရှုလိုက်ရအောင်ပါနော် ။"
+                        cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        genres: 'Comedy, Drama'
+                        author: China
+                        tags: 'Comedy, Drama'
+                        imdb_ratings: 9
+                        pdf_download_link: 'https://channelmyanmar.org/northeast-zoo-2023/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 4
+                        user_id: 0
+                        title: 'Battlebox (2023)'
+                        summary: "၁၉၄၁ ခုနှစ်၊ ဟောင်ကောင်ဟာ ဗြိတိသျှအင်ပိုင်ယာကြီးရဲ့ အရှေ့ဘက်စစ်မျက်နှာခံတပ်တစ်ခု ဖြစ်နေတဲ့ကာလ……\n                ဂျပန်တပ်တွေရုတ်တရက်တိုက်ခိုက်လာခဲ့တဲ့အခါ….\n                အလွဲလွဲအမှားမှား ဖြစ်ကုန်တဲ့ စစ်ဖက်ထောက်လှမ်းရေးပြဿနာကြားမှာ ပါဝင်ပတ်သက်နေမိတဲ့ တရုတ်ညီအစ်မနှစ်ယောက်ရဲ့ ဇာတ်လမ်း….\n                Gin Drinker ခံစစ်ကြောင်းမှာ ဂျပန်တွေအဝိုင်းခံလိုက်ရတဲ့ ဗြိတိသျှ-အိန္ဒိယစစ်သားတွေရဲ့ ဖြစ်ပုံပျက်ပုံတွေ….\n                သွေးပျက်ချင်စရာ စစ်ပွဲရဲ့မြူနှင်းတွေကြားမှာ မေဂျာဂျင်နရယ် မော့ဘီနဲ့ သူ့ရဲ့ အထက်တန်းအရာရှိတွေ အရှက်ကွဲခံပြီးလက်နက်ချကြမှာလား၊\n                အသက်အသေခံပြီး အဆုံးထိခံတိုက်သွားကြမှာလား….\n                (ဘယ်လမ်းကိုရွေးဖို့ သတ္တိပိုလိုမလဲ) စတာတွေကို ဇာတ်ကားလေးကြည့်ရင်း\n                ဆက်လက်ရှုစားလိုက်ကြပါဦး…………."
+                        cover_image: 'https://image.tmdb.org/t/p/w185/fDeqyKwEtms2IFtT8SDvURZWqAF.jpg'
+                        genres: 'Drama, History, War'
+                        author: 'Aleksey Shaparev'
+                        tags: 'Drama, History, War'
+                        imdb_ratings: 9
+                        pdf_download_link: 'https://channelmyanmar.org/battlebox-2023/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 3
+                        user_id: 0
+                        title: 'Perfect Strangers (2022)'
+                        summary: "လကြတ်ချိန်ဟာ နေနဲ့လတို့ကြားက တင်းမာမှု အပြင်းထန်ဆုံးအချိန်ဖြစ်ပြီး\n                လူသားတွေကို စိတ်ကယောက်ကယက်ဖြစ်စေတယ်ဆိုပြီး အဆိုရှိပါတယ်။အဲဒီလို စိတ်ကယောက်ကယက်ဖြစ်စေတဲ့ လကြတ်ညတစ်ညမှာ\n                မိတ်ဆွေသူငယ်ချင်း (၇) ယောက် ညစာအတူစားကြဖို့ စုမိကြပါတယ်။အန်ဒရီကိုနဲ့အီဗာတို့က သူတို့ရဲ့ အိမ်အသစ်ကြီးမှာ အိမ်တက်ပွဲအထိမ်းအမှတ်အနေနဲ့ ညစာဖိတ်ကျွေးတာပါ။\n                ညစာစားပွဲမှာ အိမ်ရှင် လင်မယားနဲ့အတူ ညားခါစ စုံတွဲ အန်ဂျာ့စ်နဲ့ကီရှာ၊\n                ကလေးနှစ်ယောက်ရနေပြီ ဖြစ်တဲ့ ဝစ်နူနဲ့အီမဲလ်ဒါ၊ ရည်စားရထားတာ မကြာသေးတဲ့ တိုမို ဆိုပြီး\n                စုစုပေါင်း (၇) ယောက် ပါဝင်ပါတယ်။ပေါင်းလာတာ ကြာပြီဖြစ်တဲ့ အကြောင်းသိတွေ ပျော်ပျော်ပါးပါး စားကြသောက်ကြရင်း\n                အိမ်ကြီးရှင် အီဗာက ဂိမ်းတစ်ခု ကစားကြဖို့ ပြောလိုက်ရာကနေ ဇာတ်လမ်းက စ,ပါတယ်။\n                သူပြောတဲ့ ဂိမ်းက ဖုန်းတွေအားလုံးကို စားပွဲပေါ်မှာ တင်ထားပြီး\n                ဝင်လာသမျှ မက်ဆေ့ဂျ်တွေ၊ ဖုန်းကောလ်တွေ၊ အီးမေးလ်တွေကို အတူတူဝိုင်းဖတ်ကြဖို့ပါ။ဆော့ရင်လည်း မကောင်း၊ မဆော့ပြန်ရင်လဲ အထင်လွဲခံရမှာစိုးတာနဲ့ အဲဒီဂိမ်းကို ဆော့ကြရင်းကနေ\n                တစ်ယောက်ချင်းစီရဲ့ လျှို့ဝှက်ချက်တွေ ပေါ်လာပြီး ပြဿနာတွေက သပွတ်အူလို ရှုပ်ထွေးကုန်ပါတော့တယ်။လူတွေရဲ့ လူသိမခံနိုင်တဲ့ လျှို့ဝှက်ချက်တွေ၊ ခံစားချက်တွေကို တစ်စချင်းစီ ထုတ်ပြသွားတာကြောင့်\n                (၂ )နာရီကျော်ကျော်က ဘယ်လိုကုန်လို့ကုန်သွားမှန်း မသိလိုက်တဲ့ ဇာတ်ကားမျိုးပါ။အညွှန်းဖတ်နေရင်းနဲ့ ဒီဇာတ်ကားကို ကြည့်ဖူးသလိုပဲလို့ ခံစားမိလာရင်တော့….ဟုတ်ပါတယ်….\n                2016 က ထွက်ခဲ့တဲ့ အီတလီ ဇာတ်ကားကို remake ပြန်ရိုက်ထားတာပါ။မူရင်း အီတလီကားက အကြီးအကျယ်အောင်မြင်ခဲ့ပြီး\n                စပိန်၊ မက္ကဆီကို၊ တောင်ကိုရီးယား၊ ပြင်သစ်၊ တရုတ်၊ ရုရှား အပါအဝင်\n                နိုင်ငံပေါင်း ၂၀ ကျော်က remake ပြန်ရိုက်ခဲ့ကြပါတယ်။အဲဒီ remake တွေထဲကမှ ဒီကားကတော့ 2022 ခုနှစ်မှာ အင်ဒိုနီးရှားက ပြန်ရိုက်ထားတဲ့ ဇာတ်ကားပါ။အင်ဒို remake ကားဆိုပေမဲ့ အတော်လေး ကြည့်လို့ကောင်းပြီး\n                setting ပိုင်း၊ သရုပ်ဆောင်ပိုင်း၊ musical ပိုင်း ဘာတစ်ခုမှ အပြစ်ပြောစရာ မရှိတဲ့ ဇာတ်ကားပါ။အီတလီဒဏ္ဍာရီနဲ့ အင်ဒိုရိုးရာတွေကို ပါးပါးနပ်နပ် ချိတ်ဆက်ပြထားပြီး\n                မူရင်း ဇာတ်ကားရဲ့ အရသာလည်း မပျက်သလို ဆန်းသစ်တဲ့ တင်ဆက်မှုကိုလည်း မြင်တွေ့ရမှာပါ။mystery ဆန်ဆန် အထုပ်ဖြေပြတာမျိုးကို ကြိုက်ရင်တော့ မြည်းစမ်းကြည့်သင့်ပါတယ်။\n                IMDb rating ကလည်း 7.5 အထိ ရထားပါတယ်။အညွှန်း နဲ့ ဘာသာပြန်ကတော့ Roman NoX ပဲ ဖြစ်ပါတယ်။"
+                        cover_image: 'https://image.tmdb.org/t/p/w185/rMSeZk9kCZhxVl3OOXIH29Gx1W6.jpg'
+                        genres: Action
+                        author: 'Aleksey Shaparev'
+                        tags: 'Action drama'
+                        imdb_ratings: 9
+                        pdf_download_link: 'https://channelmyanmar.org/perfect-strangers-2022/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 2
+                        user_id: 0
+                        title: 'The Royal Nanny (2022)'
+                        summary: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                        cover_image: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                        genres: Action
+                        author: 'Aleksey Shaparev'
+                        tags: 'Comedy, Drama, Romance'
+                        imdb_ratings: 6.9
+                        pdf_download_link: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 10
+                        user_id:
+                          type: integer
+                          example: 4
+                        title:
+                          type: string
+                          example: 'mov title'
+                        summary:
+                          type: string
+                          example: summary
+                        cover_image:
+                          type: string
+                          example: 'https://img/path'
+                        genres:
+                          type: string
+                          example: 'drama, action'
+                        author:
+                          type: string
+                          example: 'author name'
+                        tags:
+                          type: string
+                          example: 'drama, action'
+                        imdb_ratings:
+                          type: number
+                          example: 5.6
+                        pdf_download_link:
+                          type: string
+                          example: 'https://img/path'
+                        created_at:
+                          type: string
+                          example: '2023-02-06T09:52:49.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-02-06T09:52:49.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+                  popular_movies:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        user_id: 0
+                        title: 'The Royal Nanny (2022)'
+                        summary: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                        cover_image: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                        genres: Action
+                        author: 'Aleksey Shaparev'
+                        tags: 'Comedy, Drama, Romance'
+                        imdb_ratings: 6.9
+                        pdf_download_link: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 3
+                        user_id: 0
+                        title: 'Perfect Strangers (2022)'
+                        summary: "လကြတ်ချိန်ဟာ နေနဲ့လတို့ကြားက တင်းမာမှု အပြင်းထန်ဆုံးအချိန်ဖြစ်ပြီး\n                လူသားတွေကို စိတ်ကယောက်ကယက်ဖြစ်စေတယ်ဆိုပြီး အဆိုရှိပါတယ်။အဲဒီလို စိတ်ကယောက်ကယက်ဖြစ်စေတဲ့ လကြတ်ညတစ်ညမှာ\n                မိတ်ဆွေသူငယ်ချင်း (၇) ယောက် ညစာအတူစားကြဖို့ စုမိကြပါတယ်။အန်ဒရီကိုနဲ့အီဗာတို့က သူတို့ရဲ့ အိမ်အသစ်ကြီးမှာ အိမ်တက်ပွဲအထိမ်းအမှတ်အနေနဲ့ ညစာဖိတ်ကျွေးတာပါ။\n                ညစာစားပွဲမှာ အိမ်ရှင် လင်မယားနဲ့အတူ ညားခါစ စုံတွဲ အန်ဂျာ့စ်နဲ့ကီရှာ၊\n                ကလေးနှစ်ယောက်ရနေပြီ ဖြစ်တဲ့ ဝစ်နူနဲ့အီမဲလ်ဒါ၊ ရည်စားရထားတာ မကြာသေးတဲ့ တိုမို ဆိုပြီး\n                စုစုပေါင်း (၇) ယောက် ပါဝင်ပါတယ်။ပေါင်းလာတာ ကြာပြီဖြစ်တဲ့ အကြောင်းသိတွေ ပျော်ပျော်ပါးပါး စားကြသောက်ကြရင်း\n                အိမ်ကြီးရှင် အီဗာက ဂိမ်းတစ်ခု ကစားကြဖို့ ပြောလိုက်ရာကနေ ဇာတ်လမ်းက စ,ပါတယ်။\n                သူပြောတဲ့ ဂိမ်းက ဖုန်းတွေအားလုံးကို စားပွဲပေါ်မှာ တင်ထားပြီး\n                ဝင်လာသမျှ မက်ဆေ့ဂျ်တွေ၊ ဖုန်းကောလ်တွေ၊ အီးမေးလ်တွေကို အတူတူဝိုင်းဖတ်ကြဖို့ပါ။ဆော့ရင်လည်း မကောင်း၊ မဆော့ပြန်ရင်လဲ အထင်လွဲခံရမှာစိုးတာနဲ့ အဲဒီဂိမ်းကို ဆော့ကြရင်းကနေ\n                တစ်ယောက်ချင်းစီရဲ့ လျှို့ဝှက်ချက်တွေ ပေါ်လာပြီး ပြဿနာတွေက သပွတ်အူလို ရှုပ်ထွေးကုန်ပါတော့တယ်။လူတွေရဲ့ လူသိမခံနိုင်တဲ့ လျှို့ဝှက်ချက်တွေ၊ ခံစားချက်တွေကို တစ်စချင်းစီ ထုတ်ပြသွားတာကြောင့်\n                (၂ )နာရီကျော်ကျော်က ဘယ်လိုကုန်လို့ကုန်သွားမှန်း မသိလိုက်တဲ့ ဇာတ်ကားမျိုးပါ။အညွှန်းဖတ်နေရင်းနဲ့ ဒီဇာတ်ကားကို ကြည့်ဖူးသလိုပဲလို့ ခံစားမိလာရင်တော့….ဟုတ်ပါတယ်….\n                2016 က ထွက်ခဲ့တဲ့ အီတလီ ဇာတ်ကားကို remake ပြန်ရိုက်ထားတာပါ။မူရင်း အီတလီကားက အကြီးအကျယ်အောင်မြင်ခဲ့ပြီး\n                စပိန်၊ မက္ကဆီကို၊ တောင်ကိုရီးယား၊ ပြင်သစ်၊ တရုတ်၊ ရုရှား အပါအဝင်\n                နိုင်ငံပေါင်း ၂၀ ကျော်က remake ပြန်ရိုက်ခဲ့ကြပါတယ်။အဲဒီ remake တွေထဲကမှ ဒီကားကတော့ 2022 ခုနှစ်မှာ အင်ဒိုနီးရှားက ပြန်ရိုက်ထားတဲ့ ဇာတ်ကားပါ။အင်ဒို remake ကားဆိုပေမဲ့ အတော်လေး ကြည့်လို့ကောင်းပြီး\n                setting ပိုင်း၊ သရုပ်ဆောင်ပိုင်း၊ musical ပိုင်း ဘာတစ်ခုမှ အပြစ်ပြောစရာ မရှိတဲ့ ဇာတ်ကားပါ။အီတလီဒဏ္ဍာရီနဲ့ အင်ဒိုရိုးရာတွေကို ပါးပါးနပ်နပ် ချိတ်ဆက်ပြထားပြီး\n                မူရင်း ဇာတ်ကားရဲ့ အရသာလည်း မပျက်သလို ဆန်းသစ်တဲ့ တင်ဆက်မှုကိုလည်း မြင်တွေ့ရမှာပါ။mystery ဆန်ဆန် အထုပ်ဖြေပြတာမျိုးကို ကြိုက်ရင်တော့ မြည်းစမ်းကြည့်သင့်ပါတယ်။\n                IMDb rating ကလည်း 7.5 အထိ ရထားပါတယ်။အညွှန်း နဲ့ ဘာသာပြန်ကတော့ Roman NoX ပဲ ဖြစ်ပါတယ်။"
+                        cover_image: 'https://image.tmdb.org/t/p/w185/rMSeZk9kCZhxVl3OOXIH29Gx1W6.jpg'
+                        genres: Action
+                        author: 'Aleksey Shaparev'
+                        tags: 'Action drama'
+                        imdb_ratings: 9
+                        pdf_download_link: 'https://channelmyanmar.org/perfect-strangers-2022/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 4
+                        user_id: 0
+                        title: 'Battlebox (2023)'
+                        summary: "၁၉၄၁ ခုနှစ်၊ ဟောင်ကောင်ဟာ ဗြိတိသျှအင်ပိုင်ယာကြီးရဲ့ အရှေ့ဘက်စစ်မျက်နှာခံတပ်တစ်ခု ဖြစ်နေတဲ့ကာလ……\n                ဂျပန်တပ်တွေရုတ်တရက်တိုက်ခိုက်လာခဲ့တဲ့အခါ….\n                အလွဲလွဲအမှားမှား ဖြစ်ကုန်တဲ့ စစ်ဖက်ထောက်လှမ်းရေးပြဿနာကြားမှာ ပါဝင်ပတ်သက်နေမိတဲ့ တရုတ်ညီအစ်မနှစ်ယောက်ရဲ့ ဇာတ်လမ်း….\n                Gin Drinker ခံစစ်ကြောင်းမှာ ဂျပန်တွေအဝိုင်းခံလိုက်ရတဲ့ ဗြိတိသျှ-အိန္ဒိယစစ်သားတွေရဲ့ ဖြစ်ပုံပျက်ပုံတွေ….\n                သွေးပျက်ချင်စရာ စစ်ပွဲရဲ့မြူနှင်းတွေကြားမှာ မေဂျာဂျင်နရယ် မော့ဘီနဲ့ သူ့ရဲ့ အထက်တန်းအရာရှိတွေ အရှက်ကွဲခံပြီးလက်နက်ချကြမှာလား၊\n                အသက်အသေခံပြီး အဆုံးထိခံတိုက်သွားကြမှာလား….\n                (ဘယ်လမ်းကိုရွေးဖို့ သတ္တိပိုလိုမလဲ) စတာတွေကို ဇာတ်ကားလေးကြည့်ရင်း\n                ဆက်လက်ရှုစားလိုက်ကြပါဦး…………."
+                        cover_image: 'https://image.tmdb.org/t/p/w185/fDeqyKwEtms2IFtT8SDvURZWqAF.jpg'
+                        genres: 'Drama, History, War'
+                        author: 'Aleksey Shaparev'
+                        tags: 'Drama, History, War'
+                        imdb_ratings: 9
+                        pdf_download_link: 'https://channelmyanmar.org/battlebox-2023/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 5
+                        user_id: 0
+                        title: 'Northeast Zoo ( 2023 )'
+                        summary: "ဒီနေ့မှာတော့ CM က ပရိတ်သတ်ကြီးကို ဘဝအမောတွေပြေစေဖို့\n                ပေါ့ပေါ့ပါးပါး ဟာသကားလေးတစ်ကားနဲ့မိတ်ဆက်ပေးပါရစေရှင် ။“ မြို့ကိုတက်ပြီးအလုပ်လုပ်နေပေမဲ့ အလုပ်မှာ အဆင်မပြေမှုတွေနဲ့ ရင်ဆိုင်နေရသူ ၊\n                ဖခင်ဖြစ်သူဟာ လျောင်ခရိုင်မှာ တိရိစ္ဆာန်ရုံတစ်ခုကိုဖွင့်လှစ်ထားပေမဲ့\n                ၎င်းတိရိစ္ဆာန်ရုံကို ဦးစီးဖို့ နည်းနည်းလေးမှ စိတ်ကူးမရှိသူ ၊\n                ဖခင်နဲ့လဲ ဆက်ဆံရေး အဆင်မပြေသူ – စွင်းရှောင်ဟူ တစ်နေ့မှာတော့ ရင်းနီးမြှုပ်နှံသူတစ်ချို့ဟာ စွင်းရှောင်ဟူ ဖခင်ရဲ့\n                တိရိစ္ဆာန်ရုံကို စီးပွားရေးနယ်ချဲ့ဖို့အတွက် မျက်စိကျနေခဲ့ကာ\n                တိရိစ္ဆာန်ရုံမြေနေရာကို လက်ဝါးကြီးအုပ်ဖို့ ကြံစည်လာခဲ့ပါတယ် ။အဲဒါနဲ့ပဲ အလုပ်အကိုင် / ငွေကြေးအဆင်မပြေတဲ့ စွင်းရှောင် ဟူကို\n                ငွေနဲ့ဖျားယောင်းကာ တိရိစ္ဆာန်ရုံရဲ့ စီးပွားရေးဖျက်ဆီးပစ်ပြီး\n                မြေနေရာကို ဖယ်ခိုင်းခဲ့ပါတယ် ။ ဖခင်အပေါ်လဲ စိတ်ကျေနပ်မှုမရှိတဲ့\n                စွင်းရှောင်ဟူဟာ ဒီသဘောတူညီချက်ကိုလက်ခံပြီး\n                တိရိစ္ဆာန်ရုံကို ဖျက်ဆီးပစ်ဖို့ စီစဥ်လာခဲ့ပါတော့တယ် ။❏ စွင်းရှောင်ဟူတစ်ယောက် ဖခင်ဖြစ်သူကိုဘယ်လိုရင်ဆိုင်မှာလဲ ?\n                ❏ တိရိစ္ဆာန်ရုံဖျက်ဆီးပြစ်ဖို့ အကြံကရော အောင်မြင်နိုင်ပါ့မလား ?\n                ❏ သူ့အပေါ်ဆို ဘယ်အရာနေနေ သစ္စာရှိကြတဲ့\n                သူငယ်ချင်းတွေကရော သူ့လုပ်ရပ်အတွက် ခွင့်လွှတ်နိုင်ပါ့မလား ?\n                ❏ ဘယ်လိုအလွဲလွဲ အမှားမှားတွေ ဖြစ်လာဦးမလဲဆိုတာ\n                ဟာသလေးတွေနှောပြီး ရိုက်ကူးထားတဲ့ ဒီဇာတ်ကားလေးကို အခုပဲ ကြည့်ရှုလိုက်ရအောင်ပါနော် ။"
+                        cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        genres: 'Comedy, Drama'
+                        author: China
+                        tags: 'Comedy, Drama'
+                        imdb_ratings: 9
+                        pdf_download_link: 'https://channelmyanmar.org/northeast-zoo-2023/'
+                        created_at: '2023-02-06T07:05:40.000000Z'
+                        updated_at: '2023-02-06T07:05:40.000000Z'
+                        deleted_at: null
+                      -
+                        id: 6
+                        user_id: 1
+                        title: 'User 001 movie'
+                        summary: summary
+                        cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        genres: action
+                        author: ato
+                        tags: drama
+                        imdb_ratings: 5
+                        pdf_download_link: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        created_at: '2023-02-06T08:00:14.000000Z'
+                        updated_at: '2023-02-06T08:00:14.000000Z'
+                        deleted_at: null
+                      -
+                        id: 8
+                        user_id: 4
+                        title: 'mov title'
+                        summary: null
+                        cover_image: null
+                        genres: null
+                        author: null
+                        tags: null
+                        imdb_ratings: 5
+                        pdf_download_link: null
+                        created_at: '2023-02-06T09:49:44.000000Z'
+                        updated_at: '2023-02-06T09:49:44.000000Z'
+                        deleted_at: null
+                      -
+                        id: 9
+                        user_id: 4
+                        title: 'mov title'
+                        summary: summary
+                        cover_image: 'https://img/path'
+                        genres: 'drama, action'
+                        author: 'author name'
+                        tags: 'drama, action'
+                        imdb_ratings: 5.6
+                        pdf_download_link: 'https://img/path'
+                        created_at: '2023-02-06T09:52:30.000000Z'
+                        updated_at: '2023-02-06T09:52:30.000000Z'
+                        deleted_at: null
+                      -
+                        id: 10
+                        user_id: 4
+                        title: 'mov title'
+                        summary: summary
+                        cover_image: 'https://img/path'
+                        genres: 'drama, action'
+                        author: 'author name'
+                        tags: 'drama, action'
+                        imdb_ratings: 5.6
+                        pdf_download_link: 'https://img/path'
+                        created_at: '2023-02-06T09:52:49.000000Z'
+                        updated_at: '2023-02-06T09:52:49.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        user_id:
+                          type: integer
+                          example: 0
+                        title:
+                          type: string
+                          example: 'The Royal Nanny (2022)'
+                        summary:
+                          type: string
+                          example: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                        cover_image:
+                          type: string
+                          example: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                        genres:
+                          type: string
+                          example: Action
+                        author:
+                          type: string
+                          example: 'Aleksey Shaparev'
+                        tags:
+                          type: string
+                          example: 'Comedy, Drama, Romance'
+                        imdb_ratings:
+                          type: number
+                          example: 6.9
+                        pdf_download_link:
+                          type: string
+                          example: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                        created_at:
+                          type: string
+                          example: '2023-02-06T07:05:40.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-02-06T07:05:40.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/movies/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  is_auth: false
+                  movie:
+                    id: 2
+                    user_id: 0
+                    title: 'The Royal Nanny (2022)'
+                    summary: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                    cover_image: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                    genres: Action
+                    author: 'Aleksey Shaparev'
+                    tags: 'Comedy, Drama, Romance'
+                    imdb_ratings: 6.9
+                    pdf_download_link: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                    created_at: '2023-02-06T07:05:40.000000Z'
+                    updated_at: '2023-02-06T07:05:40.000000Z'
+                    deleted_at: null
+                  related_movies:
+                    -
+                      id: 10
+                      user_id: 4
+                      title: 'mov title'
+                      summary: summary
+                      cover_image: 'https://img/path'
+                      genres: 'drama, action'
+                      author: 'author name'
+                      tags: 'drama, action'
+                      imdb_ratings: 5.6
+                      pdf_download_link: 'https://img/path'
+                      created_at: '2023-02-06T09:52:49.000000Z'
+                      updated_at: '2023-02-06T09:52:49.000000Z'
+                      deleted_at: null
+                    -
+                      id: 9
+                      user_id: 4
+                      title: 'mov title'
+                      summary: summary
+                      cover_image: 'https://img/path'
+                      genres: 'drama, action'
+                      author: 'author name'
+                      tags: 'drama, action'
+                      imdb_ratings: 5.6
+                      pdf_download_link: 'https://img/path'
+                      created_at: '2023-02-06T09:52:30.000000Z'
+                      updated_at: '2023-02-06T09:52:30.000000Z'
+                      deleted_at: null
+                    -
+                      id: 8
+                      user_id: 4
+                      title: 'mov title'
+                      summary: null
+                      cover_image: null
+                      genres: null
+                      author: null
+                      tags: null
+                      imdb_ratings: 5
+                      pdf_download_link: null
+                      created_at: '2023-02-06T09:49:44.000000Z'
+                      updated_at: '2023-02-06T09:49:44.000000Z'
+                      deleted_at: null
+                    -
+                      id: 6
+                      user_id: 1
+                      title: 'User 001 movie'
+                      summary: summary
+                      cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      genres: action
+                      author: ato
+                      tags: drama
+                      imdb_ratings: 5
+                      pdf_download_link: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                      created_at: '2023-02-06T08:00:14.000000Z'
+                      updated_at: '2023-02-06T08:00:14.000000Z'
+                      deleted_at: null
+                  comments: []
+                properties:
+                  is_auth:
+                    type: boolean
+                    example: false
+                  movie:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2
+                      user_id:
+                        type: integer
+                        example: 0
+                      title:
+                        type: string
+                        example: 'The Royal Nanny (2022)'
+                      summary:
+                        type: string
+                        example: "The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                ‌\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ ‌ကလေးထိန်းအဖြစ်တာဝန်‌ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်"
+                      cover_image:
+                        type: string
+                        example: 'https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg'
+                      genres:
+                        type: string
+                        example: Action
+                      author:
+                        type: string
+                        example: 'Aleksey Shaparev'
+                      tags:
+                        type: string
+                        example: 'Comedy, Drama, Romance'
+                      imdb_ratings:
+                        type: number
+                        example: 6.9
+                      pdf_download_link:
+                        type: string
+                        example: 'https://channelmyanmar.org/the-royal-nanny-2022/'
+                      created_at:
+                        type: string
+                        example: '2023-02-06T07:05:40.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-02-06T07:05:40.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+                  related_movies:
+                    type: array
+                    example:
+                      -
+                        id: 10
+                        user_id: 4
+                        title: 'mov title'
+                        summary: summary
+                        cover_image: 'https://img/path'
+                        genres: 'drama, action'
+                        author: 'author name'
+                        tags: 'drama, action'
+                        imdb_ratings: 5.6
+                        pdf_download_link: 'https://img/path'
+                        created_at: '2023-02-06T09:52:49.000000Z'
+                        updated_at: '2023-02-06T09:52:49.000000Z'
+                        deleted_at: null
+                      -
+                        id: 9
+                        user_id: 4
+                        title: 'mov title'
+                        summary: summary
+                        cover_image: 'https://img/path'
+                        genres: 'drama, action'
+                        author: 'author name'
+                        tags: 'drama, action'
+                        imdb_ratings: 5.6
+                        pdf_download_link: 'https://img/path'
+                        created_at: '2023-02-06T09:52:30.000000Z'
+                        updated_at: '2023-02-06T09:52:30.000000Z'
+                        deleted_at: null
+                      -
+                        id: 8
+                        user_id: 4
+                        title: 'mov title'
+                        summary: null
+                        cover_image: null
+                        genres: null
+                        author: null
+                        tags: null
+                        imdb_ratings: 5
+                        pdf_download_link: null
+                        created_at: '2023-02-06T09:49:44.000000Z'
+                        updated_at: '2023-02-06T09:49:44.000000Z'
+                        deleted_at: null
+                      -
+                        id: 6
+                        user_id: 1
+                        title: 'User 001 movie'
+                        summary: summary
+                        cover_image: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        genres: action
+                        author: ato
+                        tags: drama
+                        imdb_ratings: 5
+                        pdf_download_link: 'https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg'
+                        created_at: '2023-02-06T08:00:14.000000Z'
+                        updated_at: '2023-02-06T08:00:14.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 10
+                        user_id:
+                          type: integer
+                          example: 4
+                        title:
+                          type: string
+                          example: 'mov title'
+                        summary:
+                          type: string
+                          example: summary
+                        cover_image:
+                          type: string
+                          example: 'https://img/path'
+                        genres:
+                          type: string
+                          example: 'drama, action'
+                        author:
+                          type: string
+                          example: 'author name'
+                        tags:
+                          type: string
+                          example: 'drama, action'
+                        imdb_ratings:
+                          type: number
+                          example: 5.6
+                        pdf_download_link:
+                          type: string
+                          example: 'https://img/path'
+                        created_at:
+                          type: string
+                          example: '2023-02-06T09:52:49.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-02-06T09:52:49.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+                  comments:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Show the form for editing the specified resource.'
+      operationId: showTheFormForEditingTheSpecifiedResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the movie.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/v1/comments:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
 tags:
   -
     name: Endpoints

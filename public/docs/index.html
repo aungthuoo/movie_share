@@ -74,6 +74,30 @@
                                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
                                 <a href="#endpoints-GETapi-user">Login</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-login">
+                                <a href="#endpoints-GETapi-v1-login">Login</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-register">
+                                <a href="#endpoints-GETapi-v1-register">Register</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-movies">
+                                <a href="#endpoints-GETapi-v1-movies">Display a listing of the resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-movies--id-">
+                                <a href="#endpoints-GETapi-v1-movies--id-">Display the specified resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-movies">
+                                <a href="#endpoints-POSTapi-v1-movies">Store a newly created resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-movies--id-">
+                                <a href="#endpoints-DELETEapi-v1-movies--id-">Show the form for editing the specified resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-v1-movies--id-">
+                                <a href="#endpoints-PUTapi-v1-movies--id-">Update the specified resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-comments">
+                                <a href="#endpoints-POSTapi-v1-comments">Store a newly created resource in storage.</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -261,6 +285,1350 @@ fetch(url, {
 <p>Example: <code>12345678</code></p>
         </div>
         </form>
+
+                    <h2 id="endpoints-GETapi-v1-login">Login</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to login a user to the system.</p>
+
+<span id="example-requests-GETapi-v1-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://0.0.0.0:8000/api/v1/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"admin@gmail.com\",
+    \"password\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "admin@gmail.com",
+    "password": "123456"
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-login">
+            <blockquote>
+            <p>Example response (200, User Login Successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;User Login Successfully&quot;,
+    &quot;access_token&quot;: &quot;&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Failed Login):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid login credentials&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-login" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-login"></code></pre>
+</span>
+<form id="form-GETapi-v1-login" data-method="GET"
+      data-path="api/v1/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-login"
+                    onclick="tryItOut('GETapi-v1-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-login"
+                    onclick="cancelTryOut('GETapi-v1-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/login</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="GETapi-v1-login"
+               value="admin@gmail.com"
+               data-component="body">
+    <br>
+<p>Example: <code>admin@gmail.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="password"                data-endpoint="GETapi-v1-login"
+               value="123456"
+               data-component="body">
+    <br>
+<p>Example: <code>123456</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-v1-register">Register</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to register a user to the system.</p>
+
+<span id="example-requests-GETapi-v1-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://0.0.0.0:8000/api/v1/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"admin\",
+    \"email\": \"admin@gmail.com\",
+    \"password\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "123456"
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-register">
+            <blockquote>
+            <p>Example response (200, User Login Successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Register successfully.&quot;,
+    &quot;access_token&quot;: &quot;&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Failed Login):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid login credentials&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200, Already register):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Already registered.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-register" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-register"></code></pre>
+</span>
+<form id="form-GETapi-v1-register" data-method="GET"
+      data-path="api/v1/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-register"
+                    onclick="tryItOut('GETapi-v1-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-register"
+                    onclick="cancelTryOut('GETapi-v1-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/register</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-register"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-register"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="name"                data-endpoint="GETapi-v1-register"
+               value="admin"
+               data-component="body">
+    <br>
+<p>Example: <code>admin</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="GETapi-v1-register"
+               value="admin@gmail.com"
+               data-component="body">
+    <br>
+<p>Example: <code>admin@gmail.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="password"                data-endpoint="GETapi-v1-register"
+               value="123456"
+               data-component="body">
+    <br>
+<p>Example: <code>123456</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-v1-movies">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-movies">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://0.0.0.0:8000/api/v1/movies" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/movies"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-movies">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;is_auth&quot;: false,
+    &quot;genres&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Action&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Drama&quot;
+        }
+    ],
+    &quot;banner&quot;: {
+        &quot;title&quot;: &quot;Kruty 1918 (2019)&quot;,
+        &quot;summary&quot;: &quot;ယူကရိန်းကို ကမ္ဘာက လွတ်လပ်တဲ့နိုင်ငံအဖြစ် အသိအမှတ်ပြုဖို့ အသင့်ဖြစ်နေပါပြီ။ ဒါပေမယ့် လွတ်လပ်ရေးလမ်းကြောင်းကို အနှောင့်အယှက်ပေးနေတဲ့ ရုရှားစစ်တပ်ဟာ ယူကရိန်းမြို့တွေကို တစ်မြို့ပြီးတစ်မြို့သိမ်းယူရင်း မြို့တော် ကီဗီ ကိုသိမ်းဖို့အထိစီစဉ် ထားခဲ့ပါတယ်။&quot;,
+        &quot;cover_image&quot;: &quot;https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg&quot;,
+        &quot;genres&quot;: &quot;Action&quot;,
+        &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+        &quot;tags&quot;: &quot;Action drama&quot;,
+        &quot;imdb_ratings&quot;: 9,
+        &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/kruty-1918-2019/&quot;
+    },
+    &quot;movies&quot;: [
+        {
+            &quot;id&quot;: 10,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://img/path&quot;,
+            &quot;genres&quot;: &quot;drama, action&quot;,
+            &quot;author&quot;: &quot;author name&quot;,
+            &quot;tags&quot;: &quot;drama, action&quot;,
+            &quot;imdb_ratings&quot;: 5.6,
+            &quot;pdf_download_link&quot;: &quot;https://img/path&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T09:52:49.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:52:49.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://img/path&quot;,
+            &quot;genres&quot;: &quot;drama, action&quot;,
+            &quot;author&quot;: &quot;author name&quot;,
+            &quot;tags&quot;: &quot;drama, action&quot;,
+            &quot;imdb_ratings&quot;: 5.6,
+            &quot;pdf_download_link&quot;: &quot;https://img/path&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T09:52:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:52:30.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: null,
+            &quot;cover_image&quot;: null,
+            &quot;genres&quot;: null,
+            &quot;author&quot;: null,
+            &quot;tags&quot;: null,
+            &quot;imdb_ratings&quot;: 5,
+            &quot;pdf_download_link&quot;: null,
+            &quot;created_at&quot;: &quot;2023-02-06T09:49:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:49:44.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;User 001 movie&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;genres&quot;: &quot;action&quot;,
+            &quot;author&quot;: &quot;ato&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_ratings&quot;: 5,
+            &quot;pdf_download_link&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T08:00:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T08:00:14.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;Northeast Zoo ( 2023 )&quot;,
+            &quot;summary&quot;: &quot;ဒီနေ့မှာတော့ CM က ပရိတ်သတ်ကြီးကို ဘဝအမောတွေပြေစေဖို့\n                ပေါ့ပေါ့ပါးပါး ဟာသကားလေးတစ်ကားနဲ့မိတ်ဆက်ပေးပါရစေရှင် ။&ldquo; မြို့ကိုတက်ပြီးအလုပ်လုပ်နေပေမဲ့ အလုပ်မှာ အဆင်မပြေမှုတွေနဲ့ ရင်ဆိုင်နေရသူ ၊\n                ဖခင်ဖြစ်သူဟာ လျောင်ခရိုင်မှာ တိရိစ္ဆာန်ရုံတစ်ခုကိုဖွင့်လှစ်ထားပေမဲ့\n                ၎င်းတိရိစ္ဆာန်ရုံကို ဦးစီးဖို့ နည်းနည်းလေးမှ စိတ်ကူးမရှိသူ ၊\n                ဖခင်နဲ့လဲ ဆက်ဆံရေး အဆင်မပြေသူ &ndash; စွင်းရှောင်ဟူ တစ်နေ့မှာတော့ ရင်းနီးမြှုပ်နှံသူတစ်ချို့ဟာ စွင်းရှောင်ဟူ ဖခင်ရဲ့\n                တိရိစ္ဆာန်ရုံကို စီးပွားရေးနယ်ချဲ့ဖို့အတွက် မျက်စိကျနေခဲ့ကာ\n                တိရိစ္ဆာန်ရုံမြေနေရာကို လက်ဝါးကြီးအုပ်ဖို့ ကြံစည်လာခဲ့ပါတယ် ။အဲဒါနဲ့ပဲ အလုပ်အကိုင် / ငွေကြေးအဆင်မပြေတဲ့ စွင်းရှောင် ဟူကို\n                ငွေနဲ့ဖျားယောင်းကာ တိရိစ္ဆာန်ရုံရဲ့ စီးပွားရေးဖျက်ဆီးပစ်ပြီး\n                မြေနေရာကို ဖယ်ခိုင်းခဲ့ပါတယ် ။ ဖခင်အပေါ်လဲ စိတ်ကျေနပ်မှုမရှိတဲ့\n                စွင်းရှောင်ဟူဟာ ဒီသဘောတူညီချက်ကိုလက်ခံပြီး\n                တိရိစ္ဆာန်ရုံကို ဖျက်ဆီးပစ်ဖို့ စီစဥ်လာခဲ့ပါတော့တယ် ။❏ စွင်းရှောင်ဟူတစ်ယောက် ဖခင်ဖြစ်သူကိုဘယ်လိုရင်ဆိုင်မှာလဲ ?\n                ❏ တိရိစ္ဆာန်ရုံဖျက်ဆီးပြစ်ဖို့ အကြံကရော အောင်မြင်နိုင်ပါ့မလား ?\n                ❏ သူ့အပေါ်ဆို ဘယ်အရာနေနေ သစ္စာရှိကြတဲ့\n                သူငယ်ချင်းတွေကရော သူ့လုပ်ရပ်အတွက် ခွင့်လွှတ်နိုင်ပါ့မလား ?\n                ❏ ဘယ်လိုအလွဲလွဲ အမှားမှားတွေ ဖြစ်လာဦးမလဲဆိုတာ\n                ဟာသလေးတွေနှောပြီး ရိုက်ကူးထားတဲ့ ဒီဇာတ်ကားလေးကို အခုပဲ ကြည့်ရှုလိုက်ရအောင်ပါနော် ။&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;genres&quot;: &quot;Comedy, Drama&quot;,
+            &quot;author&quot;: &quot;China&quot;,
+            &quot;tags&quot;: &quot;Comedy, Drama&quot;,
+            &quot;imdb_ratings&quot;: 9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/northeast-zoo-2023/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;Battlebox (2023)&quot;,
+            &quot;summary&quot;: &quot;၁၉၄၁ ခုနှစ်၊ ဟောင်ကောင်ဟာ ဗြိတိသျှအင်ပိုင်ယာကြီးရဲ့ အရှေ့ဘက်စစ်မျက်နှာခံတပ်တစ်ခု ဖြစ်နေတဲ့ကာလ&hellip;&hellip;\n                ဂျပန်တပ်တွေရုတ်တရက်တိုက်ခိုက်လာခဲ့တဲ့အခါ&hellip;.\n                အလွဲလွဲအမှားမှား ဖြစ်ကုန်တဲ့ စစ်ဖက်ထောက်လှမ်းရေးပြဿနာကြားမှာ ပါဝင်ပတ်သက်နေမိတဲ့ တရုတ်ညီအစ်မနှစ်ယောက်ရဲ့ ဇာတ်လမ်း&hellip;.\n                Gin Drinker ခံစစ်ကြောင်းမှာ ဂျပန်တွေအဝိုင်းခံလိုက်ရတဲ့ ဗြိတိသျှ-အိန္ဒိယစစ်သားတွေရဲ့ ဖြစ်ပုံပျက်ပုံတွေ&hellip;.\n                သွေးပျက်ချင်စရာ စစ်ပွဲရဲ့မြူနှင်းတွေကြားမှာ မေဂျာဂျင်နရယ် မော့ဘီနဲ့ သူ့ရဲ့ အထက်တန်းအရာရှိတွေ အရှက်ကွဲခံပြီးလက်နက်ချကြမှာလား၊\n                အသက်အသေခံပြီး အဆုံးထိခံတိုက်သွားကြမှာလား&hellip;.\n                (ဘယ်လမ်းကိုရွေးဖို့ သတ္တိပိုလိုမလဲ) စတာတွေကို ဇာတ်ကားလေးကြည့်ရင်း\n                ဆက်လက်ရှုစားလိုက်ကြပါဦး&hellip;&hellip;&hellip;&hellip;.&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/fDeqyKwEtms2IFtT8SDvURZWqAF.jpg&quot;,
+            &quot;genres&quot;: &quot;Drama, History, War&quot;,
+            &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+            &quot;tags&quot;: &quot;Drama, History, War&quot;,
+            &quot;imdb_ratings&quot;: 9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/battlebox-2023/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;Perfect Strangers (2022)&quot;,
+            &quot;summary&quot;: &quot;လကြတ်ချိန်ဟာ နေနဲ့လတို့ကြားက တင်းမာမှု အပြင်းထန်ဆုံးအချိန်ဖြစ်ပြီး\n                လူသားတွေကို စိတ်ကယောက်ကယက်ဖြစ်စေတယ်ဆိုပြီး အဆိုရှိပါတယ်။အဲဒီလို စိတ်ကယောက်ကယက်ဖြစ်စေတဲ့ လကြတ်ညတစ်ညမှာ\n                မိတ်ဆွေသူငယ်ချင်း (၇) ယောက် ညစာအတူစားကြဖို့ စုမိကြပါတယ်။အန်ဒရီကိုနဲ့အီဗာတို့က သူတို့ရဲ့ အိမ်အသစ်ကြီးမှာ အိမ်တက်ပွဲအထိမ်းအမှတ်အနေနဲ့ ညစာဖိတ်ကျွေးတာပါ။\n                ညစာစားပွဲမှာ အိမ်ရှင် လင်မယားနဲ့အတူ ညားခါစ စုံတွဲ အန်ဂျာ့စ်နဲ့ကီရှာ၊\n                ကလေးနှစ်ယောက်ရနေပြီ ဖြစ်တဲ့ ဝစ်နူနဲ့အီမဲလ်ဒါ၊ ရည်စားရထားတာ မကြာသေးတဲ့ တိုမို ဆိုပြီး\n                စုစုပေါင်း (၇) ယောက် ပါဝင်ပါတယ်။ပေါင်းလာတာ ကြာပြီဖြစ်တဲ့ အကြောင်းသိတွေ ပျော်ပျော်ပါးပါး စားကြသောက်ကြရင်း\n                အိမ်ကြီးရှင် အီဗာက ဂိမ်းတစ်ခု ကစားကြဖို့ ပြောလိုက်ရာကနေ ဇာတ်လမ်းက စ,ပါတယ်။\n                သူပြောတဲ့ ဂိမ်းက ဖုန်းတွေအားလုံးကို စားပွဲပေါ်မှာ တင်ထားပြီး\n                ဝင်လာသမျှ မက်ဆေ့ဂျ်တွေ၊ ဖုန်းကောလ်တွေ၊ အီးမေးလ်တွေကို အတူတူဝိုင်းဖတ်ကြဖို့ပါ။ဆော့ရင်လည်း မကောင်း၊ မဆော့ပြန်ရင်လဲ အထင်လွဲခံရမှာစိုးတာနဲ့ အဲဒီဂိမ်းကို ဆော့ကြရင်းကနေ\n                တစ်ယောက်ချင်းစီရဲ့ လျှို့ဝှက်ချက်တွေ ပေါ်လာပြီး ပြဿနာတွေက သပွတ်အူလို ရှုပ်ထွေးကုန်ပါတော့တယ်။လူတွေရဲ့ လူသိမခံနိုင်တဲ့ လျှို့ဝှက်ချက်တွေ၊ ခံစားချက်တွေကို တစ်စချင်းစီ ထုတ်ပြသွားတာကြောင့်\n                (၂ )နာရီကျော်ကျော်က ဘယ်လိုကုန်လို့ကုန်သွားမှန်း မသိလိုက်တဲ့ ဇာတ်ကားမျိုးပါ။အညွှန်းဖတ်နေရင်းနဲ့ ဒီဇာတ်ကားကို ကြည့်ဖူးသလိုပဲလို့ ခံစားမိလာရင်တော့&hellip;.ဟုတ်ပါတယ်&hellip;.\n                2016 က ထွက်ခဲ့တဲ့ အီတလီ ဇာတ်ကားကို remake ပြန်ရိုက်ထားတာပါ။မူရင်း အီတလီကားက အကြီးအကျယ်အောင်မြင်ခဲ့ပြီး\n                စပိန်၊ မက္ကဆီကို၊ တောင်ကိုရီးယား၊ ပြင်သစ်၊ တရုတ်၊ ရုရှား အပါအဝင်\n                နိုင်ငံပေါင်း ၂၀ ကျော်က remake ပြန်ရိုက်ခဲ့ကြပါတယ်။အဲဒီ remake တွေထဲကမှ ဒီကားကတော့ 2022 ခုနှစ်မှာ အင်ဒိုနီးရှားက ပြန်ရိုက်ထားတဲ့ ဇာတ်ကားပါ။အင်ဒို remake ကားဆိုပေမဲ့ အတော်လေး ကြည့်လို့ကောင်းပြီး\n                setting ပိုင်း၊ သရုပ်ဆောင်ပိုင်း၊ musical ပိုင်း ဘာတစ်ခုမှ အပြစ်ပြောစရာ မရှိတဲ့ ဇာတ်ကားပါ။အီတလီဒဏ္ဍာရီနဲ့ အင်ဒိုရိုးရာတွေကို ပါးပါးနပ်နပ် ချိတ်ဆက်ပြထားပြီး\n                မူရင်း ဇာတ်ကားရဲ့ အရသာလည်း မပျက်သလို ဆန်းသစ်တဲ့ တင်ဆက်မှုကိုလည်း မြင်တွေ့ရမှာပါ။mystery ဆန်ဆန် အထုပ်ဖြေပြတာမျိုးကို ကြိုက်ရင်တော့ မြည်းစမ်းကြည့်သင့်ပါတယ်။\n                IMDb rating ကလည်း 7.5 အထိ ရထားပါတယ်။အညွှန်း နဲ့ ဘာသာပြန်ကတော့ Roman NoX ပဲ ဖြစ်ပါတယ်။&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/rMSeZk9kCZhxVl3OOXIH29Gx1W6.jpg&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+            &quot;tags&quot;: &quot;Action drama&quot;,
+            &quot;imdb_ratings&quot;: 9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/perfect-strangers-2022/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;The Royal Nanny (2022)&quot;,
+            &quot;summary&quot;: &quot;The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                &zwnj;\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ &zwnj;ကလေးထိန်းအဖြစ်တာဝန်&zwnj;ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်&quot;,
+            &quot;cover_image&quot;: &quot;https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+            &quot;tags&quot;: &quot;Comedy, Drama, Romance&quot;,
+            &quot;imdb_ratings&quot;: 6.9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/the-royal-nanny-2022/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        }
+    ],
+    &quot;popular_movies&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;The Royal Nanny (2022)&quot;,
+            &quot;summary&quot;: &quot;The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                &zwnj;\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ &zwnj;ကလေးထိန်းအဖြစ်တာဝန်&zwnj;ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်&quot;,
+            &quot;cover_image&quot;: &quot;https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+            &quot;tags&quot;: &quot;Comedy, Drama, Romance&quot;,
+            &quot;imdb_ratings&quot;: 6.9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/the-royal-nanny-2022/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;Perfect Strangers (2022)&quot;,
+            &quot;summary&quot;: &quot;လကြတ်ချိန်ဟာ နေနဲ့လတို့ကြားက တင်းမာမှု အပြင်းထန်ဆုံးအချိန်ဖြစ်ပြီး\n                လူသားတွေကို စိတ်ကယောက်ကယက်ဖြစ်စေတယ်ဆိုပြီး အဆိုရှိပါတယ်။အဲဒီလို စိတ်ကယောက်ကယက်ဖြစ်စေတဲ့ လကြတ်ညတစ်ညမှာ\n                မိတ်ဆွေသူငယ်ချင်း (၇) ယောက် ညစာအတူစားကြဖို့ စုမိကြပါတယ်။အန်ဒရီကိုနဲ့အီဗာတို့က သူတို့ရဲ့ အိမ်အသစ်ကြီးမှာ အိမ်တက်ပွဲအထိမ်းအမှတ်အနေနဲ့ ညစာဖိတ်ကျွေးတာပါ။\n                ညစာစားပွဲမှာ အိမ်ရှင် လင်မယားနဲ့အတူ ညားခါစ စုံတွဲ အန်ဂျာ့စ်နဲ့ကီရှာ၊\n                ကလေးနှစ်ယောက်ရနေပြီ ဖြစ်တဲ့ ဝစ်နူနဲ့အီမဲလ်ဒါ၊ ရည်စားရထားတာ မကြာသေးတဲ့ တိုမို ဆိုပြီး\n                စုစုပေါင်း (၇) ယောက် ပါဝင်ပါတယ်။ပေါင်းလာတာ ကြာပြီဖြစ်တဲ့ အကြောင်းသိတွေ ပျော်ပျော်ပါးပါး စားကြသောက်ကြရင်း\n                အိမ်ကြီးရှင် အီဗာက ဂိမ်းတစ်ခု ကစားကြဖို့ ပြောလိုက်ရာကနေ ဇာတ်လမ်းက စ,ပါတယ်။\n                သူပြောတဲ့ ဂိမ်းက ဖုန်းတွေအားလုံးကို စားပွဲပေါ်မှာ တင်ထားပြီး\n                ဝင်လာသမျှ မက်ဆေ့ဂျ်တွေ၊ ဖုန်းကောလ်တွေ၊ အီးမေးလ်တွေကို အတူတူဝိုင်းဖတ်ကြဖို့ပါ။ဆော့ရင်လည်း မကောင်း၊ မဆော့ပြန်ရင်လဲ အထင်လွဲခံရမှာစိုးတာနဲ့ အဲဒီဂိမ်းကို ဆော့ကြရင်းကနေ\n                တစ်ယောက်ချင်းစီရဲ့ လျှို့ဝှက်ချက်တွေ ပေါ်လာပြီး ပြဿနာတွေက သပွတ်အူလို ရှုပ်ထွေးကုန်ပါတော့တယ်။လူတွေရဲ့ လူသိမခံနိုင်တဲ့ လျှို့ဝှက်ချက်တွေ၊ ခံစားချက်တွေကို တစ်စချင်းစီ ထုတ်ပြသွားတာကြောင့်\n                (၂ )နာရီကျော်ကျော်က ဘယ်လိုကုန်လို့ကုန်သွားမှန်း မသိလိုက်တဲ့ ဇာတ်ကားမျိုးပါ။အညွှန်းဖတ်နေရင်းနဲ့ ဒီဇာတ်ကားကို ကြည့်ဖူးသလိုပဲလို့ ခံစားမိလာရင်တော့&hellip;.ဟုတ်ပါတယ်&hellip;.\n                2016 က ထွက်ခဲ့တဲ့ အီတလီ ဇာတ်ကားကို remake ပြန်ရိုက်ထားတာပါ။မူရင်း အီတလီကားက အကြီးအကျယ်အောင်မြင်ခဲ့ပြီး\n                စပိန်၊ မက္ကဆီကို၊ တောင်ကိုရီးယား၊ ပြင်သစ်၊ တရုတ်၊ ရုရှား အပါအဝင်\n                နိုင်ငံပေါင်း ၂၀ ကျော်က remake ပြန်ရိုက်ခဲ့ကြပါတယ်။အဲဒီ remake တွေထဲကမှ ဒီကားကတော့ 2022 ခုနှစ်မှာ အင်ဒိုနီးရှားက ပြန်ရိုက်ထားတဲ့ ဇာတ်ကားပါ။အင်ဒို remake ကားဆိုပေမဲ့ အတော်လေး ကြည့်လို့ကောင်းပြီး\n                setting ပိုင်း၊ သရုပ်ဆောင်ပိုင်း၊ musical ပိုင်း ဘာတစ်ခုမှ အပြစ်ပြောစရာ မရှိတဲ့ ဇာတ်ကားပါ။အီတလီဒဏ္ဍာရီနဲ့ အင်ဒိုရိုးရာတွေကို ပါးပါးနပ်နပ် ချိတ်ဆက်ပြထားပြီး\n                မူရင်း ဇာတ်ကားရဲ့ အရသာလည်း မပျက်သလို ဆန်းသစ်တဲ့ တင်ဆက်မှုကိုလည်း မြင်တွေ့ရမှာပါ။mystery ဆန်ဆန် အထုပ်ဖြေပြတာမျိုးကို ကြိုက်ရင်တော့ မြည်းစမ်းကြည့်သင့်ပါတယ်။\n                IMDb rating ကလည်း 7.5 အထိ ရထားပါတယ်။အညွှန်း နဲ့ ဘာသာပြန်ကတော့ Roman NoX ပဲ ဖြစ်ပါတယ်။&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/rMSeZk9kCZhxVl3OOXIH29Gx1W6.jpg&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+            &quot;tags&quot;: &quot;Action drama&quot;,
+            &quot;imdb_ratings&quot;: 9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/perfect-strangers-2022/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;Battlebox (2023)&quot;,
+            &quot;summary&quot;: &quot;၁၉၄၁ ခုနှစ်၊ ဟောင်ကောင်ဟာ ဗြိတိသျှအင်ပိုင်ယာကြီးရဲ့ အရှေ့ဘက်စစ်မျက်နှာခံတပ်တစ်ခု ဖြစ်နေတဲ့ကာလ&hellip;&hellip;\n                ဂျပန်တပ်တွေရုတ်တရက်တိုက်ခိုက်လာခဲ့တဲ့အခါ&hellip;.\n                အလွဲလွဲအမှားမှား ဖြစ်ကုန်တဲ့ စစ်ဖက်ထောက်လှမ်းရေးပြဿနာကြားမှာ ပါဝင်ပတ်သက်နေမိတဲ့ တရုတ်ညီအစ်မနှစ်ယောက်ရဲ့ ဇာတ်လမ်း&hellip;.\n                Gin Drinker ခံစစ်ကြောင်းမှာ ဂျပန်တွေအဝိုင်းခံလိုက်ရတဲ့ ဗြိတိသျှ-အိန္ဒိယစစ်သားတွေရဲ့ ဖြစ်ပုံပျက်ပုံတွေ&hellip;.\n                သွေးပျက်ချင်စရာ စစ်ပွဲရဲ့မြူနှင်းတွေကြားမှာ မေဂျာဂျင်နရယ် မော့ဘီနဲ့ သူ့ရဲ့ အထက်တန်းအရာရှိတွေ အရှက်ကွဲခံပြီးလက်နက်ချကြမှာလား၊\n                အသက်အသေခံပြီး အဆုံးထိခံတိုက်သွားကြမှာလား&hellip;.\n                (ဘယ်လမ်းကိုရွေးဖို့ သတ္တိပိုလိုမလဲ) စတာတွေကို ဇာတ်ကားလေးကြည့်ရင်း\n                ဆက်လက်ရှုစားလိုက်ကြပါဦး&hellip;&hellip;&hellip;&hellip;.&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/fDeqyKwEtms2IFtT8SDvURZWqAF.jpg&quot;,
+            &quot;genres&quot;: &quot;Drama, History, War&quot;,
+            &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+            &quot;tags&quot;: &quot;Drama, History, War&quot;,
+            &quot;imdb_ratings&quot;: 9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/battlebox-2023/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;user_id&quot;: 0,
+            &quot;title&quot;: &quot;Northeast Zoo ( 2023 )&quot;,
+            &quot;summary&quot;: &quot;ဒီနေ့မှာတော့ CM က ပရိတ်သတ်ကြီးကို ဘဝအမောတွေပြေစေဖို့\n                ပေါ့ပေါ့ပါးပါး ဟာသကားလေးတစ်ကားနဲ့မိတ်ဆက်ပေးပါရစေရှင် ။&ldquo; မြို့ကိုတက်ပြီးအလုပ်လုပ်နေပေမဲ့ အလုပ်မှာ အဆင်မပြေမှုတွေနဲ့ ရင်ဆိုင်နေရသူ ၊\n                ဖခင်ဖြစ်သူဟာ လျောင်ခရိုင်မှာ တိရိစ္ဆာန်ရုံတစ်ခုကိုဖွင့်လှစ်ထားပေမဲ့\n                ၎င်းတိရိစ္ဆာန်ရုံကို ဦးစီးဖို့ နည်းနည်းလေးမှ စိတ်ကူးမရှိသူ ၊\n                ဖခင်နဲ့လဲ ဆက်ဆံရေး အဆင်မပြေသူ &ndash; စွင်းရှောင်ဟူ တစ်နေ့မှာတော့ ရင်းနီးမြှုပ်နှံသူတစ်ချို့ဟာ စွင်းရှောင်ဟူ ဖခင်ရဲ့\n                တိရိစ္ဆာန်ရုံကို စီးပွားရေးနယ်ချဲ့ဖို့အတွက် မျက်စိကျနေခဲ့ကာ\n                တိရိစ္ဆာန်ရုံမြေနေရာကို လက်ဝါးကြီးအုပ်ဖို့ ကြံစည်လာခဲ့ပါတယ် ။အဲဒါနဲ့ပဲ အလုပ်အကိုင် / ငွေကြေးအဆင်မပြေတဲ့ စွင်းရှောင် ဟူကို\n                ငွေနဲ့ဖျားယောင်းကာ တိရိစ္ဆာန်ရုံရဲ့ စီးပွားရေးဖျက်ဆီးပစ်ပြီး\n                မြေနေရာကို ဖယ်ခိုင်းခဲ့ပါတယ် ။ ဖခင်အပေါ်လဲ စိတ်ကျေနပ်မှုမရှိတဲ့\n                စွင်းရှောင်ဟူဟာ ဒီသဘောတူညီချက်ကိုလက်ခံပြီး\n                တိရိစ္ဆာန်ရုံကို ဖျက်ဆီးပစ်ဖို့ စီစဥ်လာခဲ့ပါတော့တယ် ။❏ စွင်းရှောင်ဟူတစ်ယောက် ဖခင်ဖြစ်သူကိုဘယ်လိုရင်ဆိုင်မှာလဲ ?\n                ❏ တိရိစ္ဆာန်ရုံဖျက်ဆီးပြစ်ဖို့ အကြံကရော အောင်မြင်နိုင်ပါ့မလား ?\n                ❏ သူ့အပေါ်ဆို ဘယ်အရာနေနေ သစ္စာရှိကြတဲ့\n                သူငယ်ချင်းတွေကရော သူ့လုပ်ရပ်အတွက် ခွင့်လွှတ်နိုင်ပါ့မလား ?\n                ❏ ဘယ်လိုအလွဲလွဲ အမှားမှားတွေ ဖြစ်လာဦးမလဲဆိုတာ\n                ဟာသလေးတွေနှောပြီး ရိုက်ကူးထားတဲ့ ဒီဇာတ်ကားလေးကို အခုပဲ ကြည့်ရှုလိုက်ရအောင်ပါနော် ။&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;genres&quot;: &quot;Comedy, Drama&quot;,
+            &quot;author&quot;: &quot;China&quot;,
+            &quot;tags&quot;: &quot;Comedy, Drama&quot;,
+            &quot;imdb_ratings&quot;: 9,
+            &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/northeast-zoo-2023/&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;User 001 movie&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;genres&quot;: &quot;action&quot;,
+            &quot;author&quot;: &quot;ato&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_ratings&quot;: 5,
+            &quot;pdf_download_link&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T08:00:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T08:00:14.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: null,
+            &quot;cover_image&quot;: null,
+            &quot;genres&quot;: null,
+            &quot;author&quot;: null,
+            &quot;tags&quot;: null,
+            &quot;imdb_ratings&quot;: 5,
+            &quot;pdf_download_link&quot;: null,
+            &quot;created_at&quot;: &quot;2023-02-06T09:49:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:49:44.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://img/path&quot;,
+            &quot;genres&quot;: &quot;drama, action&quot;,
+            &quot;author&quot;: &quot;author name&quot;,
+            &quot;tags&quot;: &quot;drama, action&quot;,
+            &quot;imdb_ratings&quot;: 5.6,
+            &quot;pdf_download_link&quot;: &quot;https://img/path&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T09:52:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:52:30.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://img/path&quot;,
+            &quot;genres&quot;: &quot;drama, action&quot;,
+            &quot;author&quot;: &quot;author name&quot;,
+            &quot;tags&quot;: &quot;drama, action&quot;,
+            &quot;imdb_ratings&quot;: 5.6,
+            &quot;pdf_download_link&quot;: &quot;https://img/path&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T09:52:49.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:52:49.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-movies" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-movies"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-movies" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-movies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-movies"></code></pre>
+</span>
+<form id="form-GETapi-v1-movies" data-method="GET"
+      data-path="api/v1/movies"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-movies', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-movies"
+                    onclick="tryItOut('GETapi-v1-movies');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-movies"
+                    onclick="cancelTryOut('GETapi-v1-movies');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-movies" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/movies</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-movies"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-movies"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-v1-movies--id-">Display the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://0.0.0.0:8000/api/v1/movies/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/movies/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-movies--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;is_auth&quot;: false,
+    &quot;movie&quot;: {
+        &quot;id&quot;: 2,
+        &quot;user_id&quot;: 0,
+        &quot;title&quot;: &quot;The Royal Nanny (2022)&quot;,
+        &quot;summary&quot;: &quot;The Royal Nanny (2022)ငယ်ငယ်တုန်းက ကြည့်ခဲ့ရတဲ့ spy kids တို့ spy next door တို့လိုမျိုး\n                ပေါ့ပေါ့ပါးပါးလဲဖြစ်မယ် ခိုင်မာတဲ့ဇာတ်အိမ်လေးလဲရှိမယ်\n                မိသားစုနဲ့အတူ ပျော်ပျော်ပါးပါး အပန်းဖြေကြည့်ရှုဖို့ဆိုရင်တော့ နောက်ဆုံးထွက်လာတဲ့ ဒီဗြိတိန်ကားလေးကို ညွှန်းဆိုပေးပါရစေ\n                &zwnj;\n                ဗြိတိန်တော်ဝင်မိသားစုကို အန္တရာယ်ပေးမယ့်သူတွေရှိနေလို့ အနီးကပ်အသွင်ယူအနေနဲ့\n                ကလယ်ရာဟာ &zwnj;ကလေးထိန်းအဖြစ်တာဝန်&zwnj;ထမ်းဆောင်ဖို့ အကြောင်းဖန်လာပါတယ်\n                ဒီခြိမ်းခြောက်မှုကို ကြိုးကိုငါနေတာဘယ်သူလဲဆိုတာ ဇာတ်လမ်းအဆုံးထိ စိတ်ဝင်တစားကြည့်ရှုရမယ့်အပြင်\n                ခရစ္စမတ်လို ဟောလီဒေးvibe ကို ရရှိနေမှာမလို့ ပရိသတ်ကြီးတို့ အပန်းဖြေကြည့်ရှုနိုင်ဖို့ တင်ဆက်ပေးလိုက်ပါတယ်&quot;,
+        &quot;cover_image&quot;: &quot;https://channelmyanmar.org/wp-content/uploads/2023/02/MV5BNDBkNmVkMzQtNWI0Yi00ODgzLWJmYTQtMzc4N2ExNDFkN2ZjXkEyXkFqcGdeQXVyNDAwMzY0OTk@._V1_FMjpg_UX1000_.jpg&quot;,
+        &quot;genres&quot;: &quot;Action&quot;,
+        &quot;author&quot;: &quot;Aleksey Shaparev&quot;,
+        &quot;tags&quot;: &quot;Comedy, Drama, Romance&quot;,
+        &quot;imdb_ratings&quot;: 6.9,
+        &quot;pdf_download_link&quot;: &quot;https://channelmyanmar.org/the-royal-nanny-2022/&quot;,
+        &quot;created_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-06T07:05:40.000000Z&quot;,
+        &quot;deleted_at&quot;: null
+    },
+    &quot;related_movies&quot;: [
+        {
+            &quot;id&quot;: 10,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://img/path&quot;,
+            &quot;genres&quot;: &quot;drama, action&quot;,
+            &quot;author&quot;: &quot;author name&quot;,
+            &quot;tags&quot;: &quot;drama, action&quot;,
+            &quot;imdb_ratings&quot;: 5.6,
+            &quot;pdf_download_link&quot;: &quot;https://img/path&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T09:52:49.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:52:49.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://img/path&quot;,
+            &quot;genres&quot;: &quot;drama, action&quot;,
+            &quot;author&quot;: &quot;author name&quot;,
+            &quot;tags&quot;: &quot;drama, action&quot;,
+            &quot;imdb_ratings&quot;: 5.6,
+            &quot;pdf_download_link&quot;: &quot;https://img/path&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T09:52:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:52:30.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;user_id&quot;: 4,
+            &quot;title&quot;: &quot;mov title&quot;,
+            &quot;summary&quot;: null,
+            &quot;cover_image&quot;: null,
+            &quot;genres&quot;: null,
+            &quot;author&quot;: null,
+            &quot;tags&quot;: null,
+            &quot;imdb_ratings&quot;: 5,
+            &quot;pdf_download_link&quot;: null,
+            &quot;created_at&quot;: &quot;2023-02-06T09:49:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T09:49:44.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;User 001 movie&quot;,
+            &quot;summary&quot;: &quot;summary&quot;,
+            &quot;cover_image&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;genres&quot;: &quot;action&quot;,
+            &quot;author&quot;: &quot;ato&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_ratings&quot;: 5,
+            &quot;pdf_download_link&quot;: &quot;https://image.tmdb.org/t/p/w185/kTM1KPeR8mRNFXiatjPLCIVcMp9.jpg&quot;,
+            &quot;created_at&quot;: &quot;2023-02-06T08:00:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-06T08:00:14.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        }
+    ],
+    &quot;comments&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-movies--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-movies--id-"></code></pre>
+</span>
+<form id="form-GETapi-v1-movies--id-" data-method="GET"
+      data-path="api/v1/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-movies--id-"
+                    onclick="tryItOut('GETapi-v1-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-movies--id-"
+                    onclick="cancelTryOut('GETapi-v1-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/movies/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-movies--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-movies--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="GETapi-v1-movies--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-v1-movies">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-movies">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://0.0.0.0:8000/api/v1/movies" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/movies"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-movies">
+</span>
+<span id="execution-results-POSTapi-v1-movies" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-movies"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-movies" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-movies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-movies"></code></pre>
+</span>
+<form id="form-POSTapi-v1-movies" data-method="POST"
+      data-path="api/v1/movies"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-movies', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-movies"
+                    onclick="tryItOut('POSTapi-v1-movies');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-movies"
+                    onclick="cancelTryOut('POSTapi-v1-movies');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-movies" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/movies</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-movies"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-movies"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-DELETEapi-v1-movies--id-">Show the form for editing the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://0.0.0.0:8000/api/v1/movies/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/movies/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-movies--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-movies--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-movies--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-v1-movies--id-" data-method="DELETE"
+      data-path="api/v1/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-movies--id-"
+                    onclick="tryItOut('DELETEapi-v1-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-movies--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/movies/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi-v1-movies--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi-v1-movies--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="DELETEapi-v1-movies--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-v1-movies--id-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://0.0.0.0:8000/api/v1/movies/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/movies/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-movies--id-">
+</span>
+<span id="execution-results-PUTapi-v1-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-movies--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-movies--id-"></code></pre>
+</span>
+<form id="form-PUTapi-v1-movies--id-" data-method="PUT"
+      data-path="api/v1/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-movies--id-"
+                    onclick="tryItOut('PUTapi-v1-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-movies--id-"
+                    onclick="cancelTryOut('PUTapi-v1-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/movies/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PUTapi-v1-movies--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PUTapi-v1-movies--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="PUTapi-v1-movies--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-v1-comments">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-comments">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://0.0.0.0:8000/api/v1/comments" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://0.0.0.0:8000/api/v1/comments"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-comments">
+</span>
+<span id="execution-results-POSTapi-v1-comments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-comments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-comments" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-comments"></code></pre>
+</span>
+<form id="form-POSTapi-v1-comments" data-method="POST"
+      data-path="api/v1/comments"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-comments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-comments"
+                    onclick="tryItOut('POSTapi-v1-comments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-comments"
+                    onclick="cancelTryOut('POSTapi-v1-comments');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-comments" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/comments</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-comments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-comments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

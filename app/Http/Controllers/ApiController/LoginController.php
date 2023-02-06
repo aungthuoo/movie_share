@@ -14,10 +14,83 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+
+
+
+/**
+     * Register
      *
-     * @return \Illuminate\Http\Response
+     * This endpoint is used to register a user to the system.
+     *
+     * @bodyParam name string required Example: admin
+     * @bodyParam email string required Example: admin@gmail.com
+     * @bodyParam password string required Example: 123456
+     *
+     * @response scenario="User Login Successfully" {
+     * "message": "Register successfully.",
+     * "access_token": "",
+     * "token_type": "Bearer"
+     * }
+     *
+     * @response 401 scenario="Failed Login"{
+     * "message": "Invalid login credentials"
+     * }
+     * 
+     * @response 200 scenario="Already register"{
+     * "message": "Already registered."
+     * }
+     *
+     */
+    public function register(Request $request)
+    {
+        //$otpCode = rand(100000, 999999);
+
+        $user = User::where('email', '=', $request->email)
+            ->first();
+
+            
+        if( $user ){
+           return response()->json([
+               'status' => false,
+               'user' => $user,
+               'message' => 'Already registered.'
+           ], 200);
+        }
+
+       $customer = User::create([
+           'name'              => $request->name,
+           'email'             => $request->email,
+           'password'          => Hash::make($request->password),
+           //'otp_code'          => $otpCode,
+           'account_id'        => 1
+       ]);
+
+       return response()->json([
+           'status' => true,
+           'message' => 'Register successfully.'
+           //'user' => $customer
+       ], 200);
+       
+    }
+
+/**
+     * Login
+     *
+     * This endpoint is used to login a user to the system.
+     *
+     * @bodyParam email string required Example: admin@gmail.com
+     * @bodyParam password string required Example: 123456
+     *
+     * @response scenario="User Login Successfully" {
+     * "message": "User Login Successfully",
+     * "access_token": "",
+     * "token_type": "Bearer"
+     * }
+     *
+     * @response 401 scenario="Failed Login"{
+     * "message": "Invalid login credentials"
+     * }
+     *
      */
     public function login( Request $request)
     {
@@ -26,54 +99,18 @@ class LoginController extends Controller
             $token =  $user->createToken('CodeTest')->accessToken;
 
             return response()->json([
+                'status' => true,
                 'token' => $token,
-                'status' => 200
-            ]);
+                'message' => "User Login Successfully", 
+                
+            ], 200);
         } else {
             return response()->json([
-                'status' => 'error',
-                'data' => 'User does not exist'
-            ]);
+                'status' => false,
+                'message' => 'User does not exist'
+            ], 200);
         }
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
-     public function register(Request $request)
-     {
-         //$otpCode = rand(100000, 999999);
-
-         $user = User::where('email', '=', $request->email)
-             ->first();
-
-             
-         if( $user ){
-            return response()->json([
-                'status' => false,
-                'user' => $user,
-                'message' => 'Already registered.'
-            ], 200);
-         }
-
-        $customer = User::create([
-            'name'              => $request->name,
-            'email'             => $request->email,
-            'password'          => Hash::make($request->password),
-            //'otp_code'          => $otpCode,
-            'account_id'        => 1
-        ]);
-
-        return response()->json([
-            'status' => true,
-            'user' => $customer
-        ], 200);
-        
-     }
 
     /**
      * Store a newly created resource in storage.

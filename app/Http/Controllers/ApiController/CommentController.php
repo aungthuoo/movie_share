@@ -44,7 +44,6 @@ class CommentController extends Controller
         $user = Auth::user(); 
         Request::merge([
             'user_id' => $user->id ,
-            
         ]);
 
         $comment = Comment::create(
