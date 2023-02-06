@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Ko Aung Thu Code Test",
-        "_postman_id": "c6566817-669a-4eeb-b9a8-5ab929f546bc",
+        "_postman_id": "08e67adb-fe11-4195-863b-460c87bc02cb",
         "description": "Ko Aung Thu Code Test API Documentation ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,50 +19,6 @@
             "name": "Endpoints",
             "description": "",
             "item": [
-                {
-                    "name": "Login",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/user",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/user"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"ian@gmail.com\",\"password\":\"12345678\"}"
-                        },
-                        "description": "This endpoint is used to login a user to the system.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n\"message\": \"User Login Successfully\",\n\"access_token\": \"8|MgowQLkdpShwrb8AI9j1YAGmwnDjAOeE17XrP5nb\",\n\"token_type\": \"Bearer\"\n}",
-                            "name": "Successful Login"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n\"message\": \"Invalid login credentials\"\n}",
-                            "name": "Failed Login"
-                        }
-                    ]
-                },
                 {
                     "name": "Login",
                     "request": {
